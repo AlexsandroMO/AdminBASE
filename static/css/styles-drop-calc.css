@@ -1,0 +1,19 @@
+
+.badge {
+    font-size: 15px;
+    text-align: center;
+}
+
+.div-alin{
+ margin-left: 20px;
+ margin-right: 20px;
+}
+
+#form-select{
+    width: 200px;
+}
+
+#varResult {
+    left: 100px;
+    width: 520px;
+}
