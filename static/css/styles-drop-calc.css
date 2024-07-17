@@ -7,6 +7,7 @@
 .div-alin{
  margin-left: 20px;
  margin-right: 20px;
+ margin-bottom: 20px;
 }
 
 #form-select{
@@ -15,5 +16,6 @@
 
 #varResult {
     left: 100px;
-    width: 520px;
+    width: 600px;
 }
+
