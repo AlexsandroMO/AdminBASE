@@ -19,3 +19,23 @@
     width: 600px;
 }
 
+#meuInput{
+    width: 300px;
+} 
+
+#meuTextarea{
+    width: 400px;
+    font-size: 20px;
+}
+
+.form-group2{
+    width: 1300px;
+}
+
+#some-form{
+    margin-top: 10px;
+}
+
+#table-align{
+    width: 80%;
+}
