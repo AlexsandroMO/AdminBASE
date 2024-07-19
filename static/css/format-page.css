@@ -20,11 +20,11 @@
 }
 
 #meuInput{
-    width: 300px;
+    width: 200px;
 } 
 
 #meuTextarea{
-    width: 400px;
+    width: 200px;
     font-size: 20px;
 }
 
@@ -36,6 +36,49 @@
     margin-top: 10px;
 }
 
-#table-align{
-    width: 80%;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    img {
+        max-width: 100%;
+    }
+}
+
+#varResult {
+    width: auto;
+    height: 5vh; /* Altura inicial baseada na altura da viewport */
+    padding: 10px;
+    font-size: 1rem;
+}
+
+@media (min-width: 600px) {
+    #varResult {
+        width: 100vh; /* Aumenta a altura para telas maiores */
+    }
+}
+
+@media (min-width: 300px) {
+    #varResult {
+        width: 42vh; /* Aumenta ainda mais para telas maiores */
+    }
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+@media (min-width: 1024px) {
+    #varResult {
+        width: 35vh; /* Ajuste final para telas grandes */
+    }
+    img {
+        width: 800px;
+        height: 500px;
+        display: block;
+    }
 }

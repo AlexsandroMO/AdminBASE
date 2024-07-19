@@ -117,6 +117,23 @@ function calcCirc() {
 
 }
 
+$('#passar_mouse1').mouseover(function(){
+    $('#mostrar1').css('display', 'block');
+  });
+  
+  $('#passar_mouse1').mouseout(function(){
+    $('#mostrar1').css('display', 'none');
+  });
+
+$('#passar_mouse2').mouseover(function(){
+    $('#mostrar2').css('display', 'block');
+  });
+  
+  $('#passar_mouse2').mouseout(function(){
+    $('#mostrar2').css('display', 'none');
+  });
+
+  
 /*
 function toggleLine() {
     var linha = document.getElementById("nominalCorrent");
@@ -178,3 +195,6 @@ function toggleObjeto() {
 
 //     console.log("Valor da coluna 1: " + selectedValue);
 //   });
+
+
+

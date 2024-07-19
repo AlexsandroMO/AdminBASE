@@ -3,19 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Engineering Solutions</title>
 
-   <!-- Google Font: Source Sans Pro -->
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-     
-   <link rel="stylesheet" href="static/css/base/all.min.css"> <!--fontawesome--->
-   <link rel="stylesheet" href="static/css/base/adminlte.min.css">
-   <link rel="stylesheet" href="static/css/base/OverlayScrollbars.min.css">
- 
-   <link rel="stylesheet" href="static/css/format-page.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+  <link rel="stylesheet" href="static/css/base/all.min.css"> <!--fontawesome--->
+  <link rel="stylesheet" href="static/css/base/adminlte.min.css">
+  <link rel="stylesheet" href="static/css/base/OverlayScrollbars.min.css">
+
+  <link rel="stylesheet" href="static/css/format-page.css">
+  <link rel="stylesheet" href="static/css/reset.css">
+  <link rel="stylesheet" href="static/css/table-ajust.css">
 
 
 </head>
@@ -55,60 +57,65 @@
         </div>
       </div>
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="index.html" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Home
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="calcDrop.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Cable Dimension</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="calc-network-cable.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>NetWork Dimension</p>
-                  
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="name-tag.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Instrument Name</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="isa-51.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>ISA5.1</p>
-                  <span class="right badge badge-danger">New</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="data-sheet.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>DataSheet</p>
-                  <span class="right badge badge-danger">New</span>
-                </a>
-              </li>
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
-
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+            <li class="nav-item menu-open">
+              <a href="index.html" class="nav-link active">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Home
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="calcDrop.html" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Voltage Drop</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="eletro-dimension.html" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Conduit Dimension</p>
+                    
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="calc-network-cable.html" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>NetWork Dimension</p>
+                    
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="name-tag.html" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Instrument Name</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="isa-51.html" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>ISA5.1</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="data-sheet.html" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>DataSheet</p>
+                  </a>
+                </li>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+    
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
