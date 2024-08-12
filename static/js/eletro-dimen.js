@@ -25,3 +25,4 @@ function calcCirc() {
         document.getElementById("varResult").value = "Selecione ambos os valores";
     }
 }
+
