@@ -4,19 +4,11 @@
     text-align: center;
 }
 
+
 .div-alin{
  margin-left: 20px;
  margin-right: 20px;
  margin-bottom: 20px;
-}
-
-#form-select{
-    width: 200px;
-}
-
-#varResult {
-    left: 100px;
-    width: 600px;
 }
 
 #meuInput{
@@ -24,7 +16,7 @@
 } 
 
 #meuTextarea{
-    width: 200px;
+    width: 400px;
     font-size: 20px;
 }
 
@@ -50,9 +42,15 @@
 
 #varResult {
     width: auto;
+    left: 100px;
+    /*width: 630px;*/
     height: 5vh; /* Altura inicial baseada na altura da viewport */
     padding: 10px;
     font-size: 1rem;
+}
+
+#form-select{
+    width: auto;
 }
 
 @media (min-width: 600px) {
