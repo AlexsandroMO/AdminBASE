@@ -19,6 +19,14 @@
   <link rel="stylesheet" href="static/css/reset.css">
   <link rel="stylesheet" href="static/css/table-ajust.css">
 
+  <style>
+    a {
+      /*color: transparent; */
+      text-decoration: none; /* Remove o sublinhado, se desejado */
+    }
+  </style>
+
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -126,7 +134,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item active">Projects</li>
+              <li class="breadcrumb-item active"><a href="calc-base.html">Base de Cálculo</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -154,25 +162,25 @@
                             <td>
                                 <!--<input type="number" class="form-control" id="nominalTension" placeholder="0">-->
                                 <select class="form-control" id="cable">
-                                    <option data-select-id="0">-</option>
-                                    <option data-select-id="2.5">Cabo 0.5mm²</option>
-                                    <option data-select-id="2.6">Cabo 1.0mm²</option>
-                                    <option data-select-id="3.1">Cabo 1.5mm²</option>
-                                    <option data-select-id="3.6">Cabo 2.5mm²</option>
-                                    <option data-select-id="4.3">Cabo 4.0mm²</option>
-                                    <option data-select-id="4.9">Cabo 6.0mm²</option>
-                                    <option data-select-id="6.3">Cabo 10.0mm²</option>
-                                    <option data-select-id="7.3">Cabo 16.0mm²</option>
-                                    <option data-select-id="9.0">Cabo 25.0mm²</option>
-                                    <option data-select-id="10.2">Cabo 35.0mm²</option>
-                                    <option data-select-id="12.0">Cabo 50.0mm²</option>
-                                    <option data-select-id="13.8.0">Cabo 75.0mm²</option>
-                                    <option data-select-id="16.5">Cabo 95.0mm²</option>
-                                    <option data-select-id="18.0">Cabo 120.0mm²</option>
-                                    <option data-select-id="21.0">Cabo 150.0mm²</option>
-                                    <option data-select-id="22.8">Cabo 185.0mm²</option>
-                                    <option data-select-id="25.0">Cabo 240.0mm²</option>
-                                    <option data-select-id="28.5">Cabo 300.0mm²</option>
+                                  <option data-select-id="0">-</option>
+                                  <option data-select-id="2.5">Cabo 0.5mm²</option>
+                                  <option data-select-id="2.6">Cabo 1.0mm²</option>
+                                  <option data-select-id="3.1">Cabo 1.5mm²</option>
+                                  <option data-select-id="3.6">Cabo 2.5mm²</option>
+                                  <option data-select-id="4.3">Cabo 4.0mm²</option>
+                                  <option data-select-id="4.9">Cabo 6.0mm²</option>
+                                  <option data-select-id="6.3">Cabo 10.0mm²</option>
+                                  <option data-select-id="7.3">Cabo 16.0mm²</option>
+                                  <option data-select-id="9.0">Cabo 25.0mm²</option>
+                                  <option data-select-id="10.2">Cabo 35.0mm²</option>
+                                  <option data-select-id="12.0">Cabo 50.0mm²</option>
+                                  <option data-select-id="13.8.0">Cabo 75.0mm²</option>
+                                  <option data-select-id="16.5">Cabo 95.0mm²</option>
+                                  <option data-select-id="18.0">Cabo 120.0mm²</option>
+                                  <option data-select-id="21.0">Cabo 150.0mm²</option>
+                                  <option data-select-id="22.8">Cabo 185.0mm²</option>
+                                  <option data-select-id="25.0">Cabo 240.0mm²</option>
+                                  <option data-select-id="28.5">Cabo 300.0mm²</option>
                                 </select>
                             </td>
                         </tr>
@@ -195,6 +203,7 @@
                     </tbody>
                 </table>
                 <button type="submit" class="btn btn-info" onclick="calcCirc()">Calcular</button>
+
         </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
