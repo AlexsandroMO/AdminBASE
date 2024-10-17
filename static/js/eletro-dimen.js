@@ -1,5 +1,3 @@
-
-
 function calcCirc() {
     // Obter valores dos seletores
     const cableSelect = document.getElementById("cable");
@@ -26,3 +24,4 @@ function calcCirc() {
     }
 }
 
+//https://www.sil.com.br/pt/produtos/cabos-flex%C3%ADveis/cabo-flexsil-750-v.aspx
