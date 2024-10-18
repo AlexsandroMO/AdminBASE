@@ -91,12 +91,12 @@ function calcCirc() {
 
     console.log('>>>>>: ', circuitType, nominalTension)
     console.log('Result: ',result1.toFixed(2), result2.toFixed(2));
-
+ 
     dimensionCorrent.value = parseFloat(idim);
     dropTensionE.style.fontWeight = "bold";
     dropTensionE.style.color = "rgb(255, 255, 255)";
     
-    if (circuitType == 'Monofásico'){
+    if (circuitType == 'Single-Phase'){
         dropTensionE.value = result1.toFixed(2);
         console.log('Foi aqui no Mono')
         if (result1 < dropTension) {
@@ -105,7 +105,7 @@ function calcCirc() {
             dropTensionE.style.backgroundColor = "rgb(255, 1, 69)"; //red
         }
     }
-    if (circuitType == 'Trifásico'){
+    if (circuitType == 'T Single-phase'){
         console.log('Foi aqui no Tri')
         dropTensionE.value = result2.toFixed(2);
         if (result2 < dropTension) {
