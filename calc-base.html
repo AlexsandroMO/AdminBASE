@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="static/css/reset.css">
   <link rel="stylesheet" href="static/css/table-ajust.css">
 
-
   <style>
     body {
         font-family: Arial, sans-serif;
@@ -38,7 +37,7 @@
       font-size: 20px;
     }
 
-    .resultado {
+    .result {
         font-weight: bold;
         color: #007BFF;
     }
@@ -85,8 +84,6 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
               <a href="index.html" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -112,7 +109,7 @@
                 <li class="nav-item">
                   <a href="calc-network-cable.html" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>NetWork Dimension</p>
+                    <p>Network Dimension</p>
                     
                   </a>
                 </li>
@@ -131,9 +128,11 @@
                 <li class="nav-item">
                   <a href="data-sheet.html" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>DataSheet</p>
+                    <p>Data Sheet</p>
                   </a>
                 </li>
+              </ul>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -148,7 +147,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Cabos de 2,5 mm² em um Eletroduto de 1"</h1>
+            <h1 class="m-0">2.5 mm² Cables in a 1" Conduit</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -161,50 +160,49 @@
     </div>
     <!-- /.content-header -->
 
-            <div class="div-alin">
-                <div class="form-group" id="form-select">
+    <div class="div-alin">
+      <div class="form-group" id="form-select">
 
-                    <div class="form-group">
-                    <p>Para calcular quantos cabos de 2,5 mm² cabem em um eletroduto de 1", vamos considerar os seguintes dados:</p>
-                
-                    <ol>
-                        <li><strong>Diâmetro externo de um cabo de 2,5 mm²:</strong> Aproximadamente 3,4 mm (conforme a tabela que fornecemos anteriormente).</li>
-                        <li><strong>Diâmetro interno de um eletroduto de 1":</strong> Aproximadamente 25,4 mm (ou 2,54 cm).</li>
-                    </ol>
-                
-                    <h2><strong>Cálculo:</strong></h2>
-                    <ol>
-                        <li><strong>Área do eletroduto:</strong>
-                            <p>
-                                <code>A<sub>eletroduto</sub> = π × (25,4 mm / 2)<sup>2</sup> ≈ 506,7 mm<sup>2</sup></code>
-                            </p>
-                        </li>
-                        <li><strong>Área de um cabo de 2,5 mm²:</strong>
-                            <p>
-                                <code>A<sub>cabo</sub> = π × (3,4 mm / 2)<sup>2</sup> ≈ 9,0 mm<sup>2</sup></code>
-                            </p>
-                        </li>
-                        <li><strong>Cálculo do número de cabos:</strong>
-                            <p>
-                                Usando 40% de ocupação máxima:
-                                <code>A<sub>utilizável</sub> = A<sub>eletroduto</sub> × 0,4 ≈ 202,7 mm<sup>2</sup></code>
-                            </p>
-                            <p>
-                                <code>N<sub>cabos</sub> = A<sub>utilizável</sub> / A<sub>cabo</sub> ≈ 202,7 / 9,0 ≈ 22,5</code>
-                            </p>
-                        </li>
-                    </ol>
-                
-                    <p class="resultado">Arredondando para baixo, <strong>cabem aproximadamente 22 cabos de 2,5 mm²</strong> em um eletroduto de 1", considerando a ocupação máxima de 40%.</p>
-            </div>
-            </form>
+        <div class="form-group">
+          <p>To calculate how many 2.5 mm² cables can fit in a 1" conduit, we will consider the following data:</p>
+          
+          <ol>
+            <li><strong>Outer diameter of a 2.5 mm² cable:</strong> Approximately 3.4 mm (as per the table provided earlier).</li>
+            <li><strong>Inner diameter of a 1" conduit:</strong> Approximately 25.4 mm (or 2.54 cm).</li>
+          </ol>
+          
+          <h2><strong>Calculation:</strong></h2>
+          <ol>
+            <li><strong>Area of the conduit:</strong>
+              <p>
+                <code>A<sub>conduit</sub> = π × (25.4 mm / 2)<sup>2</sup> ≈ 506.7 mm<sup>2</sup></code>
+              </p>
+            </li>
+            <li><strong>Area of a 2.5 mm² cable:</strong>
+              <p>
+                <code>A<sub>cable</sub> = π × (3.4 mm / 2)<sup>2</sup> ≈ 9.0 mm<sup>2</sup></code>
+              </p>
+            </li>
+            <li><strong>Calculation of the number of cables:</strong>
+              <p>
+                Using 40% maximum occupancy:
+                <code>A<sub>usable</sub> = A<sub>conduit</sub> × 0.4 ≈ 202.7 mm<sup>2</sup></code>
+              </p>
+              <p>
+                <code>N<sub>cables</sub> = A<sub>usable</sub> / A<sub>cable</sub> ≈ 202.7 / 9.0 ≈ 22.5</code>
+              </p>
+            </li>
+          </ol>
+          
+          <p class="result">Rounding down, <strong>approximately 22 cables of 2.5 mm²</strong> can fit in a 1" conduit, considering a maximum occupancy of 40%.</p>
         </div>
+      </div>
     </div>
-    </section>
-    </div>
+  </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2024 <a href="index.html">Engineering Solutions</a>.</strong>
+      <strong>Copyright &copy; 2024 <a href="index.html">Engineering Solutions</a>.</
+
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 3.2.0
