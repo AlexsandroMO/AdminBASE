@@ -133,7 +133,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Dimensionamento de Eletrodutos</h1>
+              <h1 class="m-0">Conduit Sizing</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -148,21 +148,21 @@
 
       <div class="div-alin">
         <div class="form-group" id="form-select">
-            <label>Eletroduto Sugerido</label>
+            <label>Suggested Conduit</label>
             <input type="text" class="form-control-0" id="varResult" placeholder=" --" disabled>
         </div>
         <table class="table table-bordered" id="table-align">
             <thead>
                 <tr>
                     <th style="width: 10px">#</th>
-                    <th>Dados do Circuito</th>
-                    <th>Dados</th>
+                    <th>Circuit Data</th>
+                    <th>Data</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>1.</td>
-                    <td>Escolha a bitola do cabo</td>
+                    <td>Choose the Cable Gauge</td>
                     <td>
                         <select class="form-control" id="cable">
                             <option value="1" data-select-id="2.5">Cabo 0.5 mm²</option>
@@ -188,7 +188,7 @@
                 </tr>
                 <tr>
                     <td>2.</td>
-                    <td>Quantidade de cabos</td>
+                    <td>Number of cables</td>
                     <td>
                         <input type="number" id="quantity" placeholder="Quantidade" min="1" class="form-control"/>
                     </td>
@@ -201,21 +201,21 @@
 
     <div class="div-alin">
     <div class="form-group" id="form-select">
-      <label>Quantidade de Cabos por Eletroduto</label>
+      <label>Quantity of Cables per Conduit</label>
       <input type="text" class="form-control-0" id="varResult2" placeholder=" --" disabled>
   </div>
   <table class="table table-bordered" id="table-align">
       <thead>
           <tr>
               <th style="width: 10px">#</th>
-              <th>Dados do Circuito</th>
-              <th>Dados</th>
+              <th>Circuit Data</th>
+              <th>Data</th>
           </tr>
       </thead>
       <tbody>
           <tr>
               <td>1.</td>
-              <td>Tipo de Cabo</td>
+              <td>Cables Type</td>
               <td>
                   <!--<input type="number" class="form-control" id="nominalTension" placeholder="0">-->
                   <select class="form-control" id="cable1">
@@ -243,7 +243,7 @@
           </tr>
           <tr>
               <td>2.</td>
-              <td>Tipo de Eletroduto</td>
+              <td>Conduit Type</td>
               <td>
                   <!--<input type="number" class="form-control" id="nominalTension" placeholder="0">-->
                   <select class="form-control" id="eletro">
@@ -259,7 +259,7 @@
           </tr>
       </tbody>
   </table>
-  <button type="submit" class="btn btn-info" onclick="calcCirc()">Calcular</button>
+  <button type="submit" class="btn btn-info" onclick="calcCirc()">Calculate</button>
 
 </div>
 

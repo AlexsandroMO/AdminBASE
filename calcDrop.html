@@ -125,7 +125,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Queda de Tensão</h1>
+            <h1 class="m-0">Allowable Voltage Drop</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -140,11 +140,11 @@
 
             <div class="div-alin">
                 <div class="form-group" id="form-select" style="width: 280px">
-                    <label>Tipo de Circuito</label>
+                    <label>Circuit Type</label>
                     <select class="form-control" id="circuit-type">
                         <option data-select-id="2">-</option>
-                        <option data-select-id="3">Monofásico</option>
-                        <option>Trifásico</option>
+                        <option data-select-id="3">Single-Phase</option>
+                        <option>T Single-phase</option>
                     </select>
                 </div>
 
@@ -152,15 +152,15 @@
                     <thead>
                         <tr>
                             <th style="width: 10px">#</th>
-                            <th>Dados do Circuito</th>
-                            <th>Dados</th>
-                            <th style="width: 40px">Unidade</th>
+                            <th>Circuit Data</th>
+                            <th>Data</th>
+                            <th style="width: 40px">Unit</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>1.</td>
-                            <td>Tensão Nominal (Vn)</td>
+                            <td>Nominal Voltage (Vn)</td>
                             <td>
                                 <!--<input type="number" class="form-control" id="nominalTension" placeholder="0">-->
                                 <select class="form-control" id="nominalTension">
@@ -192,14 +192,14 @@
                         </tr>
                         <tr>
                             <td>2.</td>
-                            <td>Potência (P)<div id="mostrar1"><strong>(Se Já possui a Potência (W), não precisa informar a Corrente)</strong></div></td>
+                            <td>Power (P)<div id="mostrar1"><strong>(If you already have the Power (W), you do not need to inform the Current)</strong></div></td>
                             <td>
                                 <input type="number" class="form-control rounded-0" id="powerCircuit" placeholder="0">
                             </td>
                             <td><span class="badge" id="passar_mouse1">W</span></td>
                         </tr>
                         <td>3.</td>
-                        <td>Corrente Nominal (In) <div id="mostrar2"><strong>(Se Já possui a Corrente (A), não precisa informar a Potência)</strong></div></td>
+                        <td>Nominal Current (In) <div id="mostrar2"><strong>(If you already have the Current (A), you do not need to inform the Power)</strong></div></td>
                         <td>
                             <input type="number" class="form-control rounded-0" id="nominalCorrent" placeholder="0">
                         </td>
@@ -207,7 +207,7 @@
                         </td>
                         </tr>
                         <td>4.</td>
-                        <td>Fator de Potência (fP)</td>
+                        <td>Power Factor (fP)</td>
                         <td>
                             <input type="text" class="form-control rounded-0" id="potencialFactor" value="1">
                         </td>
@@ -215,7 +215,7 @@
                         </tr>
                         <tr>
                             <td>5.</td>
-                            <td>Corrente de Dim. (Idim)</td>
+                            <td>Dimension Current. (Idim)</td>
                             <td>
                                 <input type="number" class="form-control rounded-0" id="dimensionCorrent" readonly>
                             </td>
@@ -223,7 +223,7 @@
                         </tr>
                         <tr>
                             <td>6.</td>
-                            <td>Queda de (V) Adm.</td>
+                            <td>Allowed Voltage Drop (V)</td>
                             <td>
                                 <input type="number" class="form-control rounded-0" id="dropTension" value="3">
                             </td>
@@ -231,7 +231,7 @@
                         </tr>
                         <tr>
                             <td>7.</td>
-                            <td>Comprimento do Circuito (L)</td>
+                            <td>Circuit Length (L)</td>
                             <td>
                                 <input type="number" class="form-control rounded-0" id="circuitLenght" placeholder="0">
                             </td>
@@ -239,7 +239,7 @@
                         </tr>
                         <tr>
                             <td>8.</td>
-                            <td>Resistência do Cabo (R)</td>
+                            <td>Cable Resistance (R)</td>
                             <td>
                                 <input type="number" class="form-control rounded-0" id="cableR" placeholder="0.000"
                                     readonly>
@@ -247,7 +247,7 @@
                             <td><span class="badge">ohm/km</span></td>
                         </tr>
                         <td>9.</td>
-                        <td>Reatância do Cabo (X)</td>
+                        <td>Cable Reactance (X)</td>
                         <td>
                             <input type="number" class="form-control rounded-0" id="cableX" placeholder="0.000"
                                 readonly>
@@ -255,21 +255,21 @@
                         <td><span class="badge">ohm/km</span></td>
                         </tr>
                         <td>10.</td>
-                        <td>Cabos por Fase</td>
+                        <td>Cables per Phase</td>
                         <td>
                             <input type="number" class="form-control rounded-0" id="cableFase" value="1">
                         </td>
                         <td><span class="badge">-</span></td>
                         </tr>
                         <td>11.</td>
-                        <td>Queda de (V)) Exercida</td>
+                        <td>Exercised Voltage (V) Drop </td>
                         <td>
                             <input type="num" class="form-control rounded-0" id="dropTensionE" placeholder="0" readonly>
                         </td>
                         <td><span class="badge">%</span></td>
                         </tr>
                         <td>12.</td>
-                        <td>Seção Adotada</td>
+                        <td>Section to Be Used</td>
                         <td>
                             <select class="form-control select2 select2-hidden-accessible" id="sectionChoise"
                                 style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
@@ -297,7 +297,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <button type="submit" class="btn btn-info" onclick="calcCirc()">Calcular</button>
+                <button type="submit" class="btn btn-info" onclick="calcCirc()">Calculate</button>
             </div>
         </div>
         </section>
