@@ -173,44 +173,46 @@
           <div class="form-group">
             <h2>Voltage Drop Calculation Code Explanation</h2>
 
-            <p>This code performs voltage drop calculations in electrical circuits, considering various parameters. Let's analyze the steps and formulas used.</p>
-        
+            <p>This code performs voltage drop calculations in electrical circuits, considering various parameters.
+              Let's analyze the steps and formulas used.</p>
+
             <h2>1. Cable List</h2>
             <p>The <code>list</code> variable contains data about cables, where each sublist has:</p>
             <ol>
-                <li><strong>Column 0:</strong> Type of cable (string).</li>
-                <li><strong>Column 1:</strong> Resistance of the cable (in ohms/km).</li>
-                <li><strong>Column 2:</strong> Reactance of the cable (in ohms/km).</li>
+              <li><strong>Column 0:</strong> Type of cable (string).</li>
+              <li><strong>Column 1:</strong> Resistance of the cable (in ohms/km).</li>
+              <li><strong>Column 2:</strong> Reactance of the cable (in ohms/km).</li>
             </ol>
-        
+
             <h2>2. Cable Selection</h2>
-            <p>When a user selects a value from a <code>&lt;select&gt;</code> element, the code searches for the corresponding value in the <code>list</code> and fills in the resistance and reactance fields:</p>
+            <p>When a user selects a value from a <code>&lt;select&gt;</code> element, the code searches for the
+              corresponding value in the <code>list</code> and fills in the resistance and reactance fields:</p>
             <pre>cableR.value = varCol1; // Resistance
         cableX.value = varCol2; // Reactance</pre>
-        
+
             <h2>3. Current Calculation</h2>
             <p>The <code>calcCirc()</code> function calculates the current based on power and voltage:</p>
             <ol>
-                <li><strong>Current calculation:</strong>
-                    <p><code>I = P / V</code></p>
-                    <p>Where <code>P</code> is the power of the circuit and <code>V</code> is the nominal voltage.</p>
-                </li>
-                <li><strong>Calculated current:</strong>
-                    <p><code>I<sub>dim</sub> = (I * 0.37) + I</code></p>
-                </li>
+              <li><strong>Current calculation:</strong>
+                <p><code>I = P / V</code></p>
+                <p>Where <code>P</code> is the power of the circuit and <code>V</code> is the nominal voltage.</p>
+              </li>
+              <li><strong>Calculated current:</strong>
+                <p><code>I<sub>dim</sub> = (I * 0.37) + I</code></p>
+              </li>
             </ol>
-        
+
             <h2>4. Voltage Drop Calculation</h2>
             <p>To calculate the voltage drop, the code uses the following formulas:</p>
             <ol>
-                <li><strong>Calculation for single-phase circuits:</strong>
-                    <p><code>ΔV<sub>mono</sub> = (2 * I<sub>dim</sub> * (R + jX) * L) / (100 * n * (V / 10))</code></p>
-                </li>
-                <li><strong>Calculation for three-phase circuits:</strong>
-                    <p><code>ΔV<sub>tri</sub> = (√3 * I<sub>dim</sub> * (R + jX) * L) / (100 * n * (V / 10))</code></p>
-                </li>
+              <li><strong>Calculation for single-phase circuits:</strong>
+                <p><code>ΔV<sub>mono</sub> = (2 * I<sub>dim</sub> * (R + jX) * L) / (100 * n * (V / 10))</code></p>
+              </li>
+              <li><strong>Calculation for three-phase circuits:</strong>
+                <p><code>ΔV<sub>tri</sub> = (√3 * I<sub>dim</sub> * (R + jX) * L) / (100 * n * (V / 10))</code></p>
+              </li>
             </ol>
-        
+
             <h2>5. Voltage Drop Assessment</h2>
             <p>The code compares the voltage drop result with an allowable value (<code>dropTension</code>):</p>
             <pre>if (ΔV < dropTension) {
@@ -218,47 +220,50 @@
         } else {
             // Excessive voltage drop
         }</pre>
-        
+
             <h2>Summary</h2>
-            <p>This code calculates voltage drop in electrical circuits, utilizing resistance and reactance of cables, and considering power, voltage, and circuit length. The result is used to evaluate compliance with electrical installation standards.</p>
-        
-            <p class="result">These calculations are essential for ensuring the safety and efficiency of electrical installations.</p>
-            </div>
+            <p>This code calculates voltage drop in electrical circuits, utilizing resistance and reactance of cables,
+              and considering power, voltage, and circuit length. The result is used to evaluate compliance with
+              electrical installation standards.</p>
+
+            <p class="result">These calculations are essential for ensuring the safety and efficiency of electrical
+              installations.</p>
           </div>
-          </section>
+        </div>
+        </section>
       </div>
     </div>
-      <!-- /.content-wrapper -->
-      <footer class="main-footer">
-        <strong>Copyright &copy; 2024 <a href="index.html">Engineering Solutions</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-          <b>Version</b> 3.2.0
-        </div>
-      </footer>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2024 <a href="index.html">Engineering Solutions</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> <a href="#">4.0.0</a>
+      </div>
+    </footer>
 
-      <!-- Control Sidebar -->
-      <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-      </aside>
-      <!-- /.control-sidebar -->
-    </div>
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
 
-    <!-- base controll -->
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
-      integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-      integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
-      crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <script>
-      $.widget.bridge('uibutton', $.ui.button)
-    </script>
-    <script src="static/js/base/adminlte.js"></script>
-    <script src="static/js/name-tag.js"></script>
-    <script src="static/js/scripts.js"></script>
+  <!-- base controll -->
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+    integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <script src="static/js/base/adminlte.js"></script>
+  <script src="static/js/name-tag.js"></script>
+  <script src="static/js/scripts.js"></script>
 
 </body>
 

@@ -151,7 +151,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">2.5 mm² Cables in a 1" Conduit</h1>
+            <h1 class="m-0">Explanation of Calculations</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -163,46 +163,44 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
     <div class="div-alin">
-      <div class="form-group" id="form-select">
+        <div class="form-group" id="form-select">
 
-        <div class="form-group">
-          <p>To calculate how many 2.5 mm² cables can fit in a 1" conduit, we will consider the following data:</p>
-          
-          <ol>
-            <li><strong>Outer diameter of a 2.5 mm² cable:</strong> Approximately 3.4 mm (as per the table provided earlier).</li>
-            <li><strong>Inner diameter of a 1" conduit:</strong> Approximately 25.4 mm (or 2.54 cm).</li>
-          </ol>
-          
-          <h2><strong>Calculation:</strong></h2>
-          <ol>
-            <li><strong>Area of the conduit:</strong>
-              <p>
-                <code>A<sub>conduit</sub> = π × (25.4 mm / 2)<sup>2</sup> ≈ 506.7 mm<sup>2</sup></code>
-              </p>
-            </li>
-            <li><strong>Area of a 2.5 mm² cable:</strong>
-              <p>
-                <code>A<sub>cable</sub> = π × (3.4 mm / 2)<sup>2</sup> ≈ 9.0 mm<sup>2</sup></code>
-              </p>
-            </li>
-            <li><strong>Calculation of the number of cables:</strong>
-              <p>
-                Using 40% maximum occupancy:
-                <code>A<sub>usable</sub> = A<sub>conduit</sub> × 0.4 ≈ 202.7 mm<sup>2</sup></code>
-              </p>
-              <p>
-                <code>N<sub>cables</sub> = A<sub>usable</sub> / A<sub>cable</sub> ≈ 202.7 / 9.0 ≈ 22.5</code>
-              </p>
-            </li>
-          </ol>
-          
-          <p class="result">Rounding down, <strong>approximately 22 cables of 2.5 mm²</strong> can fit in a 1" conduit, considering a maximum occupancy of 40%.</p>
-        </div>
-      </div>
+    <h2>1. Cable Area</h2>
+    <p>The first formula is used to calculate the area occupied by the cables:</p>
+    <pre><code>const cableArea = Math.PI * Math.pow(cableValue / 2, 2) * quantityValue;</code></pre>
+    <p><strong>Explanation:</strong></p>
+    <ul>
+        <li><strong>cableValue</strong>: Diameter of the cable.</li>
+        <li><strong>cableValue / 2</strong>: Radius of the cable.</li>
+        <li><strong>Math.pow(cableValue / 2, 2)</strong>: Area of the cable's cross-section (circle).</li>
+        <li>Multiplied by <strong>quantityValue</strong> (number of cables) to obtain the total area occupied by the cables.</li>
+    </ul>
+
+    <h2>2. Allowed Area</h2>
+    <p>The allowed area for the cable tray is calculated as follows:</p>
+    <pre><code>const allowedArea = cableArea / 0.4;</code></pre>
+    <p><strong>Explanation:</strong></p>
+    <ul>
+        <li>The total area occupied by the cables is divided by the allowed occupancy rate (40%).</li>
+        <li>This means the cable tray must be at least 2.5 times the area occupied by the cables.</li>
+    </ul>
+
+    <h2>3. Cable Tray Area</h2>
+    <p>Within the loop that looks for the suitable cable tray, the area is calculated like this:</p>
+    <pre><code>const trayArea = tray.height * tray.width;</code></pre>
+    <p><strong>Explanation:</strong></p>
+    <ul>
+        <li>The area of the cable tray is calculated by multiplying its height by its width.</li>
+        <li>It checks if this area is greater than or equal to the <strong>allowedArea</strong>.</li>
+    </ul>
+
+    <h2>Summary</h2>
+    <p>The code determines the total area occupied by the cables, considering their diameter and quantity, calculates the minimum required area of the cable tray to maintain a safe occupancy rate, and iterates through a list of possible dimensions for the cable trays, suggesting the smallest one that meets the area criteria.</p>
+
     </div>
   </div>
+</div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
       <strong>Copyright &copy; 2024 <a href="index.html">Engineering Solutions</a>.</strong>
@@ -211,31 +209,32 @@
       <b>Version</b> <a href="#">4.0.0</a>
       </div>
       </footer>
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
-    </div>
-
-    <!-- base controll -->
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
-        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-        integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
-        crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <script>
-        $.widget.bridge('uibutton', $.ui.button)
-    </script>
-    <script src="static/js/base/adminlte.js"></script>
-
-    <script src="static/js/name-tag.js"></script>
-    <script src="static/js/scripts.js"></script>
-
-</body>
-
-</html>
+  
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+          <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
+      </div>
+  
+      <!-- base controll -->
+      <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+          integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+          integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+          crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- jQuery -->
+      <script src="plugins/jquery/jquery.min.js"></script>
+      <script>
+          $.widget.bridge('uibutton', $.ui.button)
+      </script>
+      <script src="static/js/base/adminlte.js"></script>
+  
+      <script src="static/js/name-tag.js"></script>
+      <script src="static/js/scripts.js"></script>
+  
+  </body>
+  
+  </html>
+  

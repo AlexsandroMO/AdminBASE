@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Engineering Solutions</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+  <link rel="stylesheet" href="static/css/base/all.min.css"> <!--fontawesome--->
+  <link rel="stylesheet" href="static/css/base/adminlte.min.css">
+  <link rel="stylesheet" href="static/css/base/OverlayScrollbars.min.css">
+
+  <link rel="stylesheet" href="static/css/format-page.css">
+  <link rel="stylesheet" href="static/css/reset.css">
+  <link rel="stylesheet" href="static/css/table-ajust.css">
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div>
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index.html" class="nav-link">Home</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="media/JARVIS.png" class="img-circle elevation-2" alt="Main Logo">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">AMO Solutions</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item menu-open">
+            <a href="index.html" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Home
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="calcDrop.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voltage Drop</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="eletro-dimension.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Conduit Dimension</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="cabletray-dimension.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Cable Tray Sizing</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="calc-network-cable.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>NetWork Dimension</p>
+                  
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="name-tag.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Instrument Name</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="isa-51.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ISA5.1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="data-sheet.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>DataSheet</p>
+                </a>
+              </li>
+
+              <!--<li class="nav-item">
+                <a href="data-sheet.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>DataSheet</p>
+                  <span class="right badge badge-danger">New</span>
+                </a>
+              </li>-->
+
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Cable Tray Sizing</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active"><a href="calc-base-tray.html">How to Use</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="div-alin">
+        <div class="form-group" id="form-select">
+            <label>Suggested Cable Tray</label>
+            <input type="text" class="form-control-0" id="varResult" placeholder=" --" style="width: 500px" disabled>
+        </div>
+        <table class="table table-bordered" id="table-align">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Options</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.</td>
+                    <td>Choose the Cable Gauge</td>
+                    <td>
+                        <select class="form-control" id="cable">
+                            <option value="1" data-select-id="2.5">Cabo 0.5 mm²</option>
+                            <option value="2" data-select-id="2.6">Cabo 1.0 mm²</option>
+                            <option value="3" data-select-id="3.1">Cabo 1.5 mm²</option>
+                            <option value="4" data-select-id="3.6">Cabo 2.5 mm²</option>
+                            <option value="5" data-select-id="4.3">Cabo 4.0 mm²</option>
+                            <option value="6" data-select-id="4.9">Cabo 6.0 mm²</option>
+                            <option value="7" data-select-id="6.3">Cabo 10.0 mm²</option>
+                            <option value="8" data-select-id="7.3">Cabo 16.0 mm²</option>
+                            <option value="9" data-select-id="9.0">Cabo 25.0 mm²</option>
+                            <option value="10" data-select-id="10.2">Cabo 35.0 mm²</option>
+                            <option value="11" data-select-id="12.0">Cabo 50.0 mm²</option>
+                            <option value="12" data-select-id="13.8">Cabo 75.0 mm²</option>
+                            <option value="13" data-select-id="16.5">Cabo 95.0 mm²</option>
+                            <option value="14" data-select-id="18.0">Cabo 120.0 mm²</option>
+                            <option value="15" data-select-id="21.0">Cabo 150.0 mm²</option>
+                            <option value="16" data-select-id="22.8">Cabo 185.0 mm²</option>
+                            <option value="17" data-select-id="25.0">Cabo 240.0 mm²</option>
+                            <option value="18" data-select-id="28.5">Cabo 300.0 mm²</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>Height (mm):</td>
+                    <td>
+                        <select class="form-control" id="alturaEletrocalha">
+                            <option value="1" data-select-id="50">50</option>
+                            <option value="2" data-select-id="100">100</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3.</td>
+                    <td>Width (mm):</td>
+                    <td>
+                        <select class="form-control" id="larguraEletrocalha">
+                            <option value="1" data-select-id="50">50</option>
+                            <option value="2" data-select-id="100">100</option>
+                            <option value="3" data-select-id="150">150</option>
+                            <option value="4" data-select-id="200">200</option>
+                            <option value="5" data-select-id="300">300</option>
+                            <option value="6" data-select-id="400">400</option>
+                            <option value="7" data-select-id="500">500</option>
+                            <option value="8" data-select-id="600">600</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4.</td>
+                    <td>Number of cables</td>
+                    <td>
+                        <input type="number" id="quantity" placeholder="Quantidade" min="1" class="form-control"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-info" onclick="suggestTray()">Sugerir Eletrcalha</button>
+    </div>
+
+    
+
+</div>
+<!-- /.row (main row) -->
+</div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<footer class="main-footer">
+<strong>Copyright &copy; 2024 <a href="index.html">Engineering Solutions</a>.</strong>
+All rights reserved.
+<div class="float-right d-none d-sm-inline-block">
+<b>Version</b> <a href="#">4.0.0</a>
+</div>
+</footer>
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+<!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- base controll -->
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"
+integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+<script>
+$.widget.bridge('uibutton', $.ui.button)
+</script>
+<script src="static/js/base/adminlte.js"></script>
+<script src="static/js/cabletray-calc.js"></script>
+
+</body>
+</html>
+

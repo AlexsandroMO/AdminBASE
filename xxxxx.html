@@ -1,191 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Engineering Solutions</title>
-
-  <!-- 
- 
-  <link rel="stylesheet" href="static/css/base/tempusdominus-bootstrap-4.min.css">
-  <link rel="stylesheet" href="static/css/base/tempusdominus-bootstrap-4.min.css">
-  <link rel="stylesheet" href="static/css/base/icheck-bootstrap.min.css">
-  <link rel="stylesheet" href="static/css/base/jqvmap.min.css">
-  <link rel="stylesheet" href="static/css/base/daterangepicker.css">
-  <link rel="stylesheet" href="static/css/base/summernote-bs4.min.css">
-
-  -->
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-  <link rel="stylesheet" href="static/css/base/all.min.css"> <!--fontawesome--->
-  <link rel="stylesheet" href="static/css/base/fontawesome.min.css">
-  <link rel="stylesheet" href="static/css/base/adminlte.min.css">
-  <link rel="stylesheet" href="static/css/base/OverlayScrollbars.min.css">
-
-  <link rel="stylesheet" href="static/css/format-page.css">
-  <link rel="stylesheet" href="static/css/isa-51.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explanation of the Formulas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        h2 {
+            color: #34495e;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
+<body>
+    <h1>Explanation of the Formulas in the Cable Tray Suggestion Code</h1>
 
-<body class="hold-transition sidebar-mini layout-fixed">
-  <div class="wrapper">
-
-
-
-  
-  
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-      <!-- Left navbar links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="index.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="calcDrop.html" class="nav-link">Cable Dimension</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="calc-network-cable.html" class="nav-link">NetWork Dimension</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="name-tag.html" class="nav-link">Instrument Name</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="isa-51.html" class="nav-link">ISA5.1</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="data-sheet.html" class="nav-link">DataSheet</a>
-        </li>
-        <!--
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="construction.html" class="nav-link">Construction</a>
-        </li>
-        -->
+    <h2>1. Cable Area</h2>
+    <p>The first formula is used to calculate the area occupied by the cables:</p>
+    <pre><code>const cableArea = Math.PI * Math.pow(cableValue / 2, 2) * quantityValue;</code></pre>
+    <p><strong>Explanation:</strong></p>
+    <ul>
+        <li><strong>cableValue</strong>: Diameter of the cable.</li>
+        <li><strong>cableValue / 2</strong>: Radius of the cable.</li>
+        <li><strong>Math.pow(cableValue / 2, 2)</strong>: Area of the cable's cross-section (circle).</li>
+        <li>Multiplied by <strong>quantityValue</strong> (number of cables) to obtain the total area occupied by the cables.</li>
     </ul>
 
-    </nav>
-    <!-- /.navbar -->
+    <h2>2. Allowed Area</h2>
+    <p>The allowed area for the cable tray is calculated as follows:</p>
+    <pre><code>const allowedArea = cableArea / 0.4;</code></pre>
+    <p><strong>Explanation:</strong></p>
+    <ul>
+        <li>The total area occupied by the cables is divided by the allowed occupancy rate (40%).</li>
+        <li>This means the cable tray must be at least 2.5 times the area occupied by the cables.</li>
+    </ul>
 
+    <h2>3. Cable Tray Area</h2>
+    <p>Within the loop that looks for the suitable cable tray, the area is calculated like this:</p>
+    <pre><code>const trayArea = tray.height * tray.width;</code></pre>
+    <p><strong>Explanation:</strong></p>
+    <ul>
+        <li>The area of the cable tray is calculated by multiplying its height by its width.</li>
+        <li>It checks if this area is greater than or equal to the <strong>allowedArea</strong>.</li>
+    </ul>
 
-
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Brand Logo -->
-
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
-            <img src="media/otz-log.png" class="img-circle elevation-2" alt="OTZ Logo">
-          </div>
-          <div class="info">
-            <a href="index.html" class="d-block">OTZ Engenharia</a>
-          </div>
-        </div>
-        <!-- /.sidebar-menu -->
-      </div>
-      <!-- /.sidebar -->
-    </aside>
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="m-0">Engineering Solutions!</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Start</li>
-              </ol>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-      </div>
-      <!-- /.content-header -->
-
-      <!-- Main content -->
-      <section class="content">
-        <div class="container-fluid">
-          <div class="card-body">
-            <div class="row">
-
-              <div class="div-alin">
-                <img
-                  src="https://images.idgesg.net/images/idge/imported/imageapi/2022/05/26/23/hand_controls_interconnecting_gears_process_automation_machinery_mechanism_efficiency_by_anawat_s_gettyimages-1163061322_2400x1600-100858595-large-100928471-large.jpg"
-                  alt="AUT SOLUTIONS" width=400 height=280 id="img-home">
-                <h1>Bem vindo a Engineering Solutions!</h1>
-                <p>Sua plataforma de soluções em engenharia</p>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-      <strong>Copyright &copy; 2024 <a href="index.html">Engineering Solutions</a>.</strong>
-      All rights reserved.
-      <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
-      </div>
-    </footer>
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
-  </div>
-  <!-- <script src="static/js/base/demo.js"></script>
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-<script src="static/js/base/bootstrap.bundle.min.js"></script>
-<script src="static/js/base/Chart.min.js"></script>
-<script src="static/js/base/sparkline.js"></script>
-<script src="static/js/base/jquery.vmap.min.js"></script>
-<script src="static/js/base/query.vmap.usa.js"></script>
-<script src="static/js/base/jquery.knob.min.js"></script>
-<script src="static/js/base/moment.min.js"></script>
-<script src="static/js/base/daterangepicker.js"></script>
-<script src="static/js/base/jquery.overlayScrollbars.min.js"></script>
-<script src="static/js/base/dashboard.js"></script>
-<script src="static/js/base/tempusdominus-bootstrap-4.min.js"></script>
-<script src="static/js/base/summernote-bs4.min.js"></script>
--->
-
-  <!-- base controll -->
-  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
-    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-    integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
-    crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- jQuery -->
-  <script src="plugins/jquery/jquery.min.js"></script>
-  <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-  <script>
-    $.widget.bridge('uibutton', $.ui.button)
-  </script>
-  <script src="static/js/base/adminlte.js"></script>
-
+    <h2>Summary</h2>
+    <p>The code determines the total area occupied by the cables, considering their diameter and quantity, calculates the minimum required area of the cable tray to maintain a safe occupancy rate, and iterates through a list of possible dimensions for the cable trays, suggesting the smallest one that meets the area criteria.</p>
 </body>
-
 </html>

@@ -95,11 +95,17 @@
                     <i class="far fa-circle nav-icon"></i>
                     <p>Conduit Dimension</p>
                   </a>
+                </li>
+                <li class="nav-item">
+                  <a href="cabletray-dimension.html" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Cable Tray Sizing</p>
+                  </a>
+                </li>
                 <li class="nav-item">
                   <a href="calc-network-cable.html" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>NetWork Dimension</p>
-
                   </a>
                 </li>
                 <li class="nav-item">
@@ -148,120 +154,120 @@
 
       <div class="div-alin">
         <div class="form-group" id="form-select">
-            <label>Suggested Conduit</label>
-            <input type="text" class="form-control-0" id="varResult" placeholder=" --" disabled>
+          <label>Suggested Conduit</label>
+          <input type="text" class="form-control-0" id="varResult" placeholder=" --" disabled>
         </div>
         <table class="table table-bordered" id="table-align">
-            <thead>
-                <tr>
-                    <th style="width: 10px">#</th>
-                    <th>Circuit Data</th>
-                    <th>Data</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1.</td>
-                    <td>Choose the Cable Gauge</td>
-                    <td>
-                        <select class="form-control" id="cable">
-                            <option value="1" data-select-id="2.5">Cabo 0.5 mm²</option>
-                            <option value="2" data-select-id="2.6">Cabo 1.0 mm²</option>
-                            <option value="3" data-select-id="3.1">Cabo 1.5 mm²</option>
-                            <option value="4" data-select-id="3.6">Cabo 2.5 mm²</option>
-                            <option value="5" data-select-id="4.3">Cabo 4.0 mm²</option>
-                            <option value="6" data-select-id="4.9">Cabo 6.0 mm²</option>
-                            <option value="7" data-select-id="6.3">Cabo 10.0 mm²</option>
-                            <option value="8" data-select-id="7.3">Cabo 16.0 mm²</option>
-                            <option value="9" data-select-id="9.0">Cabo 25.0 mm²</option>
-                            <option value="10" data-select-id="10.2">Cabo 35.0 mm²</option>
-                            <option value="11" data-select-id="12.0">Cabo 50.0 mm²</option>
-                            <option value="12" data-select-id="13.8">Cabo 75.0 mm²</option>
-                            <option value="13" data-select-id="16.5">Cabo 95.0 mm²</option>
-                            <option value="14" data-select-id="18.0">Cabo 120.0 mm²</option>
-                            <option value="15" data-select-id="21.0">Cabo 150.0 mm²</option>
-                            <option value="16" data-select-id="22.8">Cabo 185.0 mm²</option>
-                            <option value="17" data-select-id="25.0">Cabo 240.0 mm²</option>
-                            <option value="18" data-select-id="28.5">Cabo 300.0 mm²</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2.</td>
-                    <td>Number of cables</td>
-                    <td>
-                        <input type="number" id="quantity" placeholder="Quantidade" min="1" class="form-control"/>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <button type="submit" class="btn btn-info" onclick="suggestEletro()">Sugerir Eletroduto</button>
-    </div>
-
-
-    <div class="div-alin">
-    <div class="form-group" id="form-select">
-      <label>Quantity of Cables per Conduit</label>
-      <input type="text" class="form-control-0" id="varResult2" placeholder=" --" disabled>
-  </div>
-  <table class="table table-bordered" id="table-align">
-      <thead>
-          <tr>
+          <thead>
+            <tr>
               <th style="width: 10px">#</th>
               <th>Circuit Data</th>
               <th>Data</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1.</td>
+              <td>Choose the Cable Gauge</td>
+              <td>
+                <select class="form-control" id="cable">
+                  <option value="1" data-select-id="2.5">Cabo 0.5 mm²</option>
+                  <option value="2" data-select-id="2.6">Cabo 1.0 mm²</option>
+                  <option value="3" data-select-id="3.1">Cabo 1.5 mm²</option>
+                  <option value="4" data-select-id="3.6">Cabo 2.5 mm²</option>
+                  <option value="5" data-select-id="4.3">Cabo 4.0 mm²</option>
+                  <option value="6" data-select-id="4.9">Cabo 6.0 mm²</option>
+                  <option value="7" data-select-id="6.3">Cabo 10.0 mm²</option>
+                  <option value="8" data-select-id="7.3">Cabo 16.0 mm²</option>
+                  <option value="9" data-select-id="9.0">Cabo 25.0 mm²</option>
+                  <option value="10" data-select-id="10.2">Cabo 35.0 mm²</option>
+                  <option value="11" data-select-id="12.0">Cabo 50.0 mm²</option>
+                  <option value="12" data-select-id="13.8">Cabo 75.0 mm²</option>
+                  <option value="13" data-select-id="16.5">Cabo 95.0 mm²</option>
+                  <option value="14" data-select-id="18.0">Cabo 120.0 mm²</option>
+                  <option value="15" data-select-id="21.0">Cabo 150.0 mm²</option>
+                  <option value="16" data-select-id="22.8">Cabo 185.0 mm²</option>
+                  <option value="17" data-select-id="25.0">Cabo 240.0 mm²</option>
+                  <option value="18" data-select-id="28.5">Cabo 300.0 mm²</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>2.</td>
+              <td>Number of cables</td>
+              <td>
+                <input type="number" id="quantity" placeholder="Quantidade" min="1" class="form-control" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="submit" class="btn btn-info" onclick="suggestEletro()">Sugerir Eletroduto</button>
+      </div>
+
+
+      <div class="div-alin">
+        <div class="form-group" id="form-select">
+          <label>Quantity of Cables per Conduit</label>
+          <input type="text" class="form-control-0" id="varResult2" placeholder=" --" disabled>
+        </div>
+        <table class="table table-bordered" id="table-align">
+          <thead>
+            <tr>
+              <th style="width: 10px">#</th>
+              <th>Circuit Data</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
               <td>1.</td>
               <td>Cables Type</td>
               <td>
-                  <!--<input type="number" class="form-control" id="nominalTension" placeholder="0">-->
-                  <select class="form-control" id="cable1">
-                    <option data-select-id2="0">-</option>
-                    <option data-select-id2="2.5">Cabo 0.5mm²</option>
-                    <option data-select-id2="2.6">Cabo 1.0mm²</option>
-                    <option data-select-id2="3.1">Cabo 1.5mm²</option>
-                    <option data-select-id2="3.6">Cabo 2.5mm²</option>
-                    <option data-select-id2="4.3">Cabo 4.0mm²</option>
-                    <option data-select-id2="4.9">Cabo 6.0mm²</option>
-                    <option data-select-id2="6.3">Cabo 10.0mm²</option>
-                    <option data-select-id2="7.3">Cabo 16.0mm²</option>
-                    <option data-select-id2="9.0">Cabo 25.0mm²</option>
-                    <option data-select-id2="10.2">Cabo 35.0mm²</option>
-                    <option data-select-id2="12.0">Cabo 50.0mm²</option>
-                    <option data-select-id2="13.8.0">Cabo 75.0mm²</option>
-                    <option data-select-id2="16.5">Cabo 95.0mm²</option>
-                    <option data-select-id2="18.0">Cabo 120.0mm²</option>
-                    <option data-select-id2="21.0">Cabo 150.0mm²</option>
-                    <option data-select-id2="22.8">Cabo 185.0mm²</option>
-                    <option data-select-id2="25.0">Cabo 240.0mm²</option>
-                    <option data-select-id2="28.5">Cabo 300.0mm²</option>
-                  </select>
+                <!--<input type="number" class="form-control" id="nominalTension" placeholder="0">-->
+                <select class="form-control" id="cable1">
+                  <option data-select-id2="0">-</option>
+                  <option data-select-id2="2.5">Cabo 0.5mm²</option>
+                  <option data-select-id2="2.6">Cabo 1.0mm²</option>
+                  <option data-select-id2="3.1">Cabo 1.5mm²</option>
+                  <option data-select-id2="3.6">Cabo 2.5mm²</option>
+                  <option data-select-id2="4.3">Cabo 4.0mm²</option>
+                  <option data-select-id2="4.9">Cabo 6.0mm²</option>
+                  <option data-select-id2="6.3">Cabo 10.0mm²</option>
+                  <option data-select-id2="7.3">Cabo 16.0mm²</option>
+                  <option data-select-id2="9.0">Cabo 25.0mm²</option>
+                  <option data-select-id2="10.2">Cabo 35.0mm²</option>
+                  <option data-select-id2="12.0">Cabo 50.0mm²</option>
+                  <option data-select-id2="13.8.0">Cabo 75.0mm²</option>
+                  <option data-select-id2="16.5">Cabo 95.0mm²</option>
+                  <option data-select-id2="18.0">Cabo 120.0mm²</option>
+                  <option data-select-id2="21.0">Cabo 150.0mm²</option>
+                  <option data-select-id2="22.8">Cabo 185.0mm²</option>
+                  <option data-select-id2="25.0">Cabo 240.0mm²</option>
+                  <option data-select-id2="28.5">Cabo 300.0mm²</option>
+                </select>
               </td>
-          </tr>
-          <tr>
+            </tr>
+            <tr>
               <td>2.</td>
               <td>Conduit Type</td>
               <td>
-                  <!--<input type="number" class="form-control" id="nominalTension" placeholder="0">-->
-                  <select class="form-control" id="eletro">
-                      <option data-select-id2="0">-</option>
-                      <option data-select-id2="15.8">1/2"</option>
-                      <option data-select-id2="21.3">3/4"</option>
-                      <option data-select-id2="26.7">1"</option>
-                      <option data-select-id2="53.4">2"</option>
-                      <option data-select-id2="78.6">3"</option>
-                      <option data-select-id2="103.6">4"</option>
-                  </select>
+                <!--<input type="number" class="form-control" id="nominalTension" placeholder="0">-->
+                <select class="form-control" id="eletro">
+                  <option data-select-id2="0">-</option>
+                  <option data-select-id2="15.8">1/2"</option>
+                  <option data-select-id2="21.3">3/4"</option>
+                  <option data-select-id2="26.7">1"</option>
+                  <option data-select-id2="53.4">2"</option>
+                  <option data-select-id2="78.6">3"</option>
+                  <option data-select-id2="103.6">4"</option>
+                </select>
               </td>
-          </tr>
-      </tbody>
-  </table>
-  <button type="submit" class="btn btn-info" onclick="calcCirc()">Calculate</button>
+            </tr>
+          </tbody>
+        </table>
+        <button type="submit" class="btn btn-info" onclick="calcCirc()">Calculate</button>
 
-</div>
+      </div>
 
       <!-- /.row (main row) -->
     </div><!-- /.container-fluid -->
@@ -273,7 +279,7 @@
     <strong>Copyright &copy; 2024 <a href="index.html">Engineering Solutions</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
+      <b>Version</b> <a href="#">4.0.0</a>
     </div>
   </footer>
 
@@ -306,4 +312,3 @@
 </body>
 
 </html>
-
