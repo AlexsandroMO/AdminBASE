@@ -153,7 +153,7 @@
     <div class="div-alin">
         <div class="form-group" id="form-select">
             <label>Suggested Cable Tray</label>
-            <input type="text" class="form-control-0" id="varResult" placeholder=" --" style="width: 500px" disabled>
+            <input type="text" class="form-control-0" id="suggestion" placeholder=" --" style="width: 500px" disabled>
         </div>
         <table class="table table-bordered" id="table-align">
             <thead>
@@ -164,71 +164,25 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1.</td>
-                    <td>Choose the Cable Gauge</td>
-                    <td>
-                        <select class="form-control" id="cable">
-                            <option value="1" data-select-id="2.5">Cabo 0.5 mm²</option>
-                            <option value="2" data-select-id="2.6">Cabo 1.0 mm²</option>
-                            <option value="3" data-select-id="3.1">Cabo 1.5 mm²</option>
-                            <option value="4" data-select-id="3.6">Cabo 2.5 mm²</option>
-                            <option value="5" data-select-id="4.3">Cabo 4.0 mm²</option>
-                            <option value="6" data-select-id="4.9">Cabo 6.0 mm²</option>
-                            <option value="7" data-select-id="6.3">Cabo 10.0 mm²</option>
-                            <option value="8" data-select-id="7.3">Cabo 16.0 mm²</option>
-                            <option value="9" data-select-id="9.0">Cabo 25.0 mm²</option>
-                            <option value="10" data-select-id="10.2">Cabo 35.0 mm²</option>
-                            <option value="11" data-select-id="12.0">Cabo 50.0 mm²</option>
-                            <option value="12" data-select-id="13.8">Cabo 75.0 mm²</option>
-                            <option value="13" data-select-id="16.5">Cabo 95.0 mm²</option>
-                            <option value="14" data-select-id="18.0">Cabo 120.0 mm²</option>
-                            <option value="15" data-select-id="21.0">Cabo 150.0 mm²</option>
-                            <option value="16" data-select-id="22.8">Cabo 185.0 mm²</option>
-                            <option value="17" data-select-id="25.0">Cabo 240.0 mm²</option>
-                            <option value="18" data-select-id="28.5">Cabo 300.0 mm²</option>
-                        </select>
-                    </td>
+              <tr>
+                <td>1.</td>
+                  <td>Choose the Cable Gauge</td>
+                  <td>
+                    <input type="number" id="bitola" placeholder="Ø" min="1" class="form-control" />
+                  </td>
                 </tr>
                 <tr>
-                    <td>2.</td>
-                    <td>Height (mm):</td>
-                    <td>
-                        <select class="form-control" id="alturaEletrocalha">
-                            <option value="1" data-select-id="50">50</option>
-                            <option value="2" data-select-id="100">100</option>
-                        </select>
-                    </td>
+                  <td>2.</td>
+                  <td>Number of cables</td>
+                  <td>
+                    <input type="number" id="quantity" placeholder="Quantidade" min="1" class="form-control" />
+                  </td>
                 </tr>
-                <tr>
-                    <td>3.</td>
-                    <td>Width (mm):</td>
-                    <td>
-                        <select class="form-control" id="larguraEletrocalha">
-                            <option value="1" data-select-id="50">50</option>
-                            <option value="2" data-select-id="100">100</option>
-                            <option value="3" data-select-id="150">150</option>
-                            <option value="4" data-select-id="200">200</option>
-                            <option value="5" data-select-id="300">300</option>
-                            <option value="6" data-select-id="400">400</option>
-                            <option value="7" data-select-id="500">500</option>
-                            <option value="8" data-select-id="600">600</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4.</td>
-                    <td>Number of cables</td>
-                    <td>
-                        <input type="number" id="quantity" placeholder="Quantidade" min="1" class="form-control"/>
-                    </td>
-                </tr>
+              
             </tbody>
         </table>
         <button type="button" class="btn btn-info" onclick="suggestTray()">Sugerir Eletrcalha</button>
     </div>
-
-    
 
 </div>
 <!-- /.row (main row) -->

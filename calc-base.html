@@ -22,26 +22,39 @@
   <style>
     body {
         font-family: Arial, sans-serif;
-        margin: 20px;
         line-height: 1.6;
-    }
-    h1, h2 {
-        color: #333;
+        margin: 20px;
+        background-color: #f9f9f9;
     }
     h1 {
-      font-size: 28px;
-      font-weight: bold;
+        color: #333;
     }
-    
     h2 {
-      font-size: 20px;
+        color: #555;
+        font-size: 25px;
     }
-
+    p {
+        margin: 10px 0;
+    }
     .result {
+        margin-top: 20px;
         font-weight: bold;
         color: #007BFF;
     }
-    
+    .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .formula {
+        background-color: #e7f3fe;
+        border-left: 4px solid #2196F3;
+        padding: 10px;
+        margin: 10px 0;
+    }
 </style>
 
 </head>
@@ -151,7 +164,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">2.5 mm² Cables in a 1" Conduit</h1>
+            <h1 class="m-0">Conduit Suggestion Function</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -168,37 +181,54 @@
       <div class="form-group" id="form-select">
 
         <div class="form-group">
-          <p>To calculate how many 2.5 mm² cables can fit in a 1" conduit, we will consider the following data:</p>
-          
-          <ol>
-            <li><strong>Outer diameter of a 2.5 mm² cable:</strong> Approximately 3.4 mm (as per the table provided earlier).</li>
-            <li><strong>Inner diameter of a 1" conduit:</strong> Approximately 25.4 mm (or 2.54 cm).</li>
-          </ol>
-          
-          <h2><strong>Calculation:</strong></h2>
-          <ol>
-            <li><strong>Area of the conduit:</strong>
-              <p>
-                <code>A<sub>conduit</sub> = π × (25.4 mm / 2)<sup>2</sup> ≈ 506.7 mm<sup>2</sup></code>
-              </p>
-            </li>
-            <li><strong>Area of a 2.5 mm² cable:</strong>
-              <p>
-                <code>A<sub>cable</sub> = π × (3.4 mm / 2)<sup>2</sup> ≈ 9.0 mm<sup>2</sup></code>
-              </p>
-            </li>
-            <li><strong>Calculation of the number of cables:</strong>
-              <p>
-                Using 40% maximum occupancy:
-                <code>A<sub>usable</sub> = A<sub>conduit</sub> × 0.4 ≈ 202.7 mm<sup>2</sup></code>
-              </p>
-              <p>
-                <code>N<sub>cables</sub> = A<sub>usable</sub> / A<sub>cable</sub> ≈ 202.7 / 9.0 ≈ 22.5</code>
-              </p>
-            </li>
-          </ol>
-          
-          <p class="result">Rounding down, <strong>approximately 22 cables of 2.5 mm²</strong> can fit in a 1" conduit, considering a maximum occupancy of 40%.</p>
+        
+            <p>The <code>suggestEletro</code> function aims to suggest an appropriate conduit based on the quantity of specific cables and their gauge (diameter).</p>
+        
+            <h2>1. Obtaining Values</h2>
+            <p>The function retrieves values from HTML elements where the user selects the cable gauge and enters the quantity of cables.</p>
+        
+            <h2>2. Validity Check</h2>
+            <p>It checks if the gauge is selected and if the quantity is greater than zero.</p>
+        
+            <h2>3. Cable Area Calculation</h2>
+            <p>The area of a cable is calculated using the formula for the area of a circle:</p>
+            <div class="formula">
+                A<sub>cable</sub> = π × (r<sup>2</sup>)<br>
+                Where: r = diameter / 2
+            </div>
+        
+            <h2>4. Conduit Options Definition</h2>
+            <p>The function defines a list of available conduits with their sizes and diameters.</p>
+        
+            <h2>5. Suggestion Initialization</h2>
+            <p>A default message is set to indicate that no conduit has been found.</p>
+        
+            <h2>6. Loop to Find the Suitable Conduit</h2>
+            <p>It iterates over the available conduits and calculates the area for each one using the same formula:</p>
+            <div class="formula">
+                A<sub>conduit</sub> = π × (r<sup>2</sup>)<br>
+                Where: r = diameter / 2
+            </div>
+        
+            <h2>7. Conduit Capacity Check</h2>
+            <p>The function checks if the total cable area fits within a safe filling percentage of the conduit area:</p>
+            <div class="formula">
+                A<sub>total</sub> = A<sub>cable</sub> × quantity<br>
+                A<sub>usable</sub> = A<sub>conduit</sub> × fill percentage
+            </div>
+        
+            <h2>8. Conduit Suggestion</h2>
+            <p>If a suitable conduit is found, the suggestion is updated. If the conduit is 4 inches, an additional message recommends considering a cable tray.</p>
+        
+            <h2>9. Result Update</h2>
+            <p>The suggested conduit is displayed in the result field.</p>
+        
+            <h2>10. Error Message</h2>
+            <p>If the gauge or quantity is not valid, an error message is displayed.</p>
+        
+            <div class="result" id="varResult">No conduit suggested yet.</div>
+
+        
         </div>
       </div>
     </div>

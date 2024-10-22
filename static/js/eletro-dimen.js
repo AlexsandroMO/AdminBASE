@@ -1,9 +1,71 @@
-function suggestEletro() {
+function suggestEletro() { 
     // Obter valores dos seletores
-    const cableSelect = document.getElementById("cable");
-    const cableValue = parseFloat(cableSelect.options[cableSelect.selectedIndex].getAttribute("data-select-id"));
+    const cableSelect = document.getElementById("bitola");
+    const cableValue = parseInt(cableSelect.value);
     const quantityInput = document.getElementById("quantity");
     const quantity = parseInt(quantityInput.value);
+
+    console.log(">>>>: ", cableValue, quantity);
+
+    // Verificar se os valores são válidos
+    if (cableValue && quantity > 0) {
+        // Calcular a área de um cabo
+        const cableArea = Math.PI * Math.pow(cableValue / 2, 2);
+
+        // Calcular a área total ocupada pelos cabos
+        const totalCableArea = cableArea * quantity;
+
+        // Eletrodutos disponíveis
+        const eletroOptions = [
+            { size: "1/2\"", id: 21.3 },
+            { size: "3/4\"", id: 26.9 },
+            { size: "1\"", id: 33.4 },
+            { size: "2\"", id: 48.3 },
+            { size: "3\"", id: 60.3 },
+            { size: "4\"", id: 88.9 },
+            { size: " ", id: 89.0 }
+        ];
+
+        let suggestedEletro = "No conduits found.";
+
+        for (const eletro of eletroOptions) {
+            const eletroArea = Math.PI * Math.pow(eletro.id / 2, 2);
+
+            // Verificar se o eletroduto pode acomodar os cabos
+            const fillPercentage = 0.4; // 40%
+            if ((eletroArea * fillPercentage) >= totalCableArea) {
+                suggestedEletro = "";
+                suggestedEletro = `Suggested Conduit: ${eletro.size}`;
+                console.log(">>> - eletro- : ", eletro.size);
+                
+                // Verificar se o eletroduto sugerido é maior que 4"
+                if (eletro.size === " ") {
+                    suggestedEletro = "";
+                    suggestedEletro = "(Consider Using a Cable Tray)";
+                }
+                break; // Sair do loop assim que encontrar um eletroduto adequado
+            }
+        }
+
+        // Atualizar o valor no input de resultado
+        document.getElementById("varResult").value = "";
+        document.getElementById("varResult").value = suggestedEletro;
+
+    } else {
+        document.getElementById("varResult").value = "Select cable gauge and quantity.";
+    }
+}
+
+
+/*
+function suggestEletro() {
+    // Obter valores dos seletores
+    const cableSelect = document.getElementById("bitola");
+    const cableValue = parseInt(cableSelect.value);
+    const quantityInput = document.getElementById("quantity");
+    const quantity = parseInt(quantityInput.value);
+
+    console.log(">>>>: ", cableValue, quantity)
 
     // Verificar se os valores são válidos
     if (cableValue && quantity > 0) {
@@ -32,8 +94,10 @@ function suggestEletro() {
             const fillPercentage = 0.4; // 40%
             if ((eletroArea * fillPercentage) >= totalCableArea) {
                 suggestedEletro = `Eletroduto sugerido: ${eletro.size}`;
-                break; // Sair do loop assim que encontrar um eletroduto adequado
+                console.log(">>> - eletro- : ", eletro.size)
             }
+                break; // Sair do loop assim que encontrar um eletroduto adequado
+                
         }
 
         // Atualizar o valor no input de resultado
@@ -44,7 +108,8 @@ function suggestEletro() {
     }
 }
 
-
+*/
+/*
 function calcCirc() {
     // Obter valores dos seletores
     const cableSelect = document.getElementById("cable1");
@@ -70,3 +135,5 @@ function calcCirc() {
         document.getElementById("varResult2").value = "Selecione ambos os valores";
     }
 }
+
+*/

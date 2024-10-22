@@ -1,16 +1,74 @@
 
 
+
+
+
 function suggestTray() {
     console.log("----- entrou -----");
     
-    const cableSelect = document.getElementById("cable");
-    const cableValue = parseFloat(cableSelect.options[cableSelect.selectedIndex].getAttribute("data-select-id"));
-    
+    const cableSelect = document.getElementById("bitola");
+    const cableValue = parseInt(cableSelect.value);
     const quantityInput = document.getElementById("quantity");
-    const quantityValue = parseInt(quantityInput.value, 10);
+    const quantity = parseInt(quantityInput.value);
+    const textareaElement = document.getElementById("suggestion"); // Defina seu textarea aqui
+
+    // Verifica se as entradas são válidas
+    if (isNaN(cableValue) || isNaN(quantity) || cableValue <= 0 || quantity <= 0) {
+        textareaElement.value = "Please enter valid values ​​for gauge and quantity.";
+        return;
+    }
+
+    // Calcular a área ocupada pelos cabos
+    const cableArea = Math.PI * Math.pow(cableValue / 2, 2) * quantity; // Área total dos cabos
+
+    // Taxa de ocupação permitida (40%)
+    const allowedArea = cableArea / 0.4;
+
+    // Sequência de dimensões para as eletrocalhas
+    const trays = [
+        { altura: 50, largura: 50 },
+        { altura: 50, largura: 100 },
+        { altura: 100, largura: 100 },
+        { altura: 50, largura: 200 },
+        { altura: 100, largura: 200 },
+        { altura: 50, largura: 300 },
+        { altura: 100, largura: 300 },
+        { altura: 100, largura: 400 },
+        { altura: 100, largura: 500 },
+        { altura: 100, largura: 600 },
+        { altura: 100, largura: 700 },
+        { altura: 100, largura: 800 },
+        { altura: 100, largura: 900 },
+        { altura: 100, largura: 1000 }
+    ];
+
+    // Encontrar a primeira eletrocalha que atenda à necessidade
+    for (const tray of trays) {
+        const trayArea = tray.altura * tray.largura; // Área total da eletrocalha
+        if (trayArea >= allowedArea) {
+            textareaElement.value = `The suggested cable tray is: H ${tray.altura} mm x L ${tray.largura} mm`;
+            console.log("-----: ", tray.altura, tray.largura);
+            return; // Sai da função após encontrar a primeira opção adequada
+        }
+    }
+
+    textareaElement.value = "No available cable tray meets your needs. Consider dividing into more cable trays.";
+}
+
+
+
+
+
+
+/*
+
+function suggestTray() {
+    console.log("----- entrou -----");
     
-    const textareaElement = document.getElementById("varResult");
-    textareaElement.value = ''; // Limpar resultados anteriores
+    const cableSelect = document.getElementById("bitola");
+    const cableValue = parseInt(cableSelect.value);
+    const quantityInput = document.getElementById("quantity");
+    const quantity = parseInt(quantityInput.value);
 
     // Calcular a área ocupada pelos cabos
     const cableArea = Math.PI * Math.pow(cableValue / 2, 2) * quantityValue; // Área total dos cabos
@@ -53,7 +111,7 @@ function suggestTray() {
 
 
 
-/*
+
     function suggestTray() {
         console.log("----- entrou -----");
         
