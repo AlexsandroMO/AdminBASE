@@ -2,7 +2,7 @@ function suggestEletro() {
     // Obter valores dos seletores
     const cableSelect = document.getElementById("bitola");
     const cableValue = parseInt(cableSelect.value);
-    const quantityInput = document.getElementById("quantity");
+    const quantityInput = document.getElementById("quanty"); 
     const quantity = parseInt(quantityInput.value);
 
     console.log(">>>>: ", cableValue, quantity);
