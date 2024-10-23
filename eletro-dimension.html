@@ -183,6 +183,71 @@
           </tbody>
         </table>
         <button type="submit" class="btn btn-info" onclick="suggestEletro()">Sugerir Eletroduto</button>
+        <button type="button" class="btn btn-secondary" onclick="toggleDivAlin2()">Calculate Fifferent Cables</button>
+
+      </div>
+
+      <div class="div-alin2" style="display: none;">
+        <div class="form-group" id="form-select">
+          <label>Suggested Conduit</label>
+          <input type="text" class="form-control-0" id="varResult2" placeholder=" --" disabled>
+        </div>
+        <table class="table table-bordered" id="table-align">
+          <thead>
+            <tr>
+              <th style="width: 10px">#</th>
+              <th>Circuit Data</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+          <tbody> 
+            <tr>
+            <td>1.</td>
+              <td>Choose the First Cable Gauge</td>
+              <td>
+                <input type="number" id="bitola1" placeholder="Ø" min="1" class="form-control" />
+              </td>
+            </tr>
+            <tr>
+              <td>2.</td>
+              <td>Number of cables</td>
+              <td>
+                <input type="number" id="quanty1" placeholder="Quantity" min="1" class="form-control" />
+              </td>
+            </tr>
+            <tr>
+              <td>3.</td>
+                <td>Choose the Second Cable Gauge</td>
+                <td>
+                  <input type="number" id="bitola2" placeholder="Ø" min="1" class="form-control" />
+                </td>
+              </tr>
+              <tr>
+                <td>4.</td>
+                <td>Number of cables</td>
+                <td>
+                  <input type="number" id="quanty2" placeholder="Quantity" min="1" class="form-control" />
+                </td>
+              </tr>
+              <tr>
+                <td>5.</td>
+                  <td>Choose the Third Cable Gauge</td>
+                  <td>
+                    <input type="number" id="bitola3" placeholder="Ø" min="1" class="form-control" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>6.</td>
+                  <td>Number of cables</td>
+                  <td>
+                    <input type="number" id="quanty3" placeholder="Quantity" min="1" class="form-control" />
+                  </td>
+                </tr>
+          </tbody>
+        </table>
+        <button type="submit" class="btn btn-info" onclick="suggestEletro2()">Sugerir Eletroduto</button>
+        <button type="button" class="btn btn-secondary" onclick="returnToInitialCalculation()">Return to Initial Calculation</button>
+
       </div>
 
 
