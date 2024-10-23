@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Hover</title>
+    <style>
+        .texto {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .texto .mensagem {
+            display: none;
+            position: absolute;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin-top: 5px;
+            z-index: 1;
+        }
+
+        .texto:hover .mensagem {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="texto">
+        Passe o mouse aqui
+        <div class="mensagem">Isso ai</div>
+    </div>
+</body>
+</html>

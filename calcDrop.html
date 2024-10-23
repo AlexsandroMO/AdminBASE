@@ -21,6 +21,22 @@
   <link rel="stylesheet" href="static/css/reset.css">
   <link rel="stylesheet" href="static/css/table-ajust.css">
 
+  <style>
+    .hover-text {
+        display: none;
+        position: absolute;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin-top: 5px;
+        z-index: 1;
+    }
+
+    tr:hover .hover-text {
+        display: block;
+    }
+</style>
+
   
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -142,170 +158,177 @@
     </div>
     <!-- /.content-header -->
 
-            <div class="div-alin">
-                <div class="form-group" id="form-select" style="width: 280px">
-                    <label>Circuit Type</label>
-                    <select class="form-control" id="circuit-type">
-                        <option data-select-id="2">-</option>
-                        <option data-select-id="3">Single-Phase</option>
-                        <option>T Single-phase</option>
-                    </select>
-                </div>
 
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th style="width: 10px">#</th>
-                            <th>Circuit Data</th>
-                            <th>Data</th>
-                            <th style="width: 40px">Unit</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1.</td>
-                            <td>Nominal Voltage (Vn)</td>
-                            <td>
-                                <!--<input type="number" class="form-control" id="nominalTension" placeholder="0">-->
-                                <select class="form-control" id="nominalTension">
-                                    <option data-select-id="0">-</option>
-                                    <option data-select-id="5">5</option>
-                                    <option data-select-id="12">12</option>
-                                    <option data-select-id="24">24</option>
-                                    <option data-select-id="36">36</option>
-                                    <option data-select-id="110">110</option>
-                                    <option data-select-id="115">115</option>
-                                    <option data-select-id="120">120</option>
-                                    <option data-select-id="125">125</option>
-                                    <option data-select-id="127">127</option>
-                                    <option data-select-id="220">220</option>
-                                    <option data-select-id="230">230</option>
-                                    <option data-select-id="254">254</option>
-                                    <option data-select-id="240">240</option>
-                                    <option data-select-id="380">380</option>
-                                    <option data-select-id="440">440</option>
-                                    <option data-select-id="480">480</option>
-                                    <option data-select-id="760">760</option>
-                                    <option data-select-id="760">1000</option>
-                                    <option data-select-id="13800">13800</option>
-                                    <option data-select-id="69000">69000</option>
-                                    <option data-select-id="138000">138000</option>
-                                </select>
-                            </td>
-                            <td><span class="badge">V</span></td>
-                        </tr>
-                        <tr>
-                            <td>2.</td>
-                            <td>Power (P)<div id="mostrar1"><strong>(If you already have the Power (W), you do not need to inform the Current)</strong></div></td>
-                            <td>
-                                <input type="number" class="form-control rounded-0" id="powerCircuit" placeholder="0">
-                            </td>
-                            <td><span class="badge" id="passar_mouse1">W</span></td>
-                        </tr>
-                        <td>3.</td>
-                        <td>Nominal Current (In) <div id="mostrar2"><strong>(If you already have the Current (A), you do not need to inform the Power)</strong></div></td>
-                        <td>
-                            <input type="number" class="form-control rounded-0" id="nominalCorrent" placeholder="0">
-                        </td>
-                        <td><span class="badge" id="passar_mouse2">A</span>
-                        </td>
-                        </tr>
-                        <td>4.</td>
-                        <td>Power Factor (fP)</td>
-                        <td>
-                            <input type="text" class="form-control rounded-0" id="potencialFactor" value="1">
-                        </td>
-                        <td><span class="badge">-</span></td>
-                        </tr>
-                        <tr>
-                            <td>5.</td>
-                            <td>Dimension Current. (Idim)</td>
-                            <td>
-                                <input type="number" class="form-control rounded-0" id="dimensionCorrent" readonly>
-                            </td>
-                            <td><span class="badge">A</span></td>
-                        </tr>
-                        <tr>
-                            <td>6.</td>
-                            <td>Allowed Voltage Drop (V)</td>
-                            <td>
-                                <input type="number" class="form-control rounded-0" id="dropTension" value="3">
-                            </td>
-                            <td><span class="badge">%</span></td>
-                        </tr>
-                        <tr>
-                            <td>7.</td>
-                            <td>Circuit Length (L)</td>
-                            <td>
-                                <input type="number" class="form-control rounded-0" id="circuitLenght" placeholder="0">
-                            </td>
-                            <td><span class="badge">m</span></td>
-                        </tr>
-                        <tr>
-                            <td>8.</td>
-                            <td>Cable Resistance (R)</td>
-                            <td>
-                                <input type="number" class="form-control rounded-0" id="cableR" placeholder="0.000"
-                                    readonly>
-                            </td>
-                            <td><span class="badge">ohm/km</span></td>
-                        </tr>
-                        <td>9.</td>
-                        <td>Cable Reactance (X)</td>
-                        <td>
-                            <input type="number" class="form-control rounded-0" id="cableX" placeholder="0.000"
-                                readonly>
-                        </td>
-                        <td><span class="badge">ohm/km</span></td>
-                        </tr>
-                        <td>10.</td>
-                        <td>Cables per Phase</td>
-                        <td>
-                            <input type="number" class="form-control rounded-0" id="cableFase" value="1">
-                        </td>
-                        <td><span class="badge">-</span></td>
-                        </tr>
-                        <td>11.</td>
-                        <td>Exercised Voltage (V) Drop </td>
-                        <td>
-                            <input type="num" class="form-control rounded-0" id="dropTensionE" placeholder="0" readonly>
-                        </td>
-                        <td><span class="badge">%</span></td>
-                        </tr>
-                        <td>12.</td>
-                        <td>Section to Be Used</td>
-                        <td>
-                            <select class="form-control select2 select2-hidden-accessible" id="sectionChoise"
-                                style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                <option selected="selected" data-select-id="0">-</option>
-                                <option data-select-id="0,5">0,5</option>
-                                <option data-select-id="1">1</option>
-                                <option data-select-id="1,5">1,5</option>
-                                <option data-select-id="2,5">2,5</option>
-                                <option data-select-id="4">4</option>
-                                <option data-select-id="6">6</option>
-                                <option data-select-id="10">10</option>
-                                <option data-select-id="16">16</option>
-                                <option data-select-id="25">25</option>
-                                <option data-select-id="35">35</option>
-                                <option data-select-id="50">50</option>
-                                <option data-select-id="70">70</option>
-                                <option data-select-id="95">95</option>
-                                <option data-select-id="120">120</option>
-                                <option data-select-id="150">150</option>
-                                <option data-select-id="185">185</option>
-                                <option data-select-id="240">240</option>
-                                <option data-select-id="300">300</option>
-                        </td>
-                        <td><span class="badge">mm²</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button type="submit" class="btn btn-info" onclick="calcCirc()">Calculate</button>
-            </div>
-        </div>
-        </section>
-    </div>
+    <div class="div-alin">
+      <div class="form-group" id="form-select" style="width: 280px">
+          <label>Circuit Type</label>
+          <select class="form-control" id="circuit-type">
+              <option data-select-id="2">-</option>
+              <option data-select-id="3">Single-Phase</option>
+              <option>T Single-phase</option>
+          </select>
+      </div>
+  
+      <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th style="width: 10px">#</th>
+                  <th>Circuit Data</th>
+                  <th>Data</th>
+                  <th style="width: 40px">Unit</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td><strong>1.</strong></td>
+                  <td><strong>Nominal Voltage (Vn)</strong></td>
+                  <td>
+                      <select class="form-control" id="nominalTension">
+                          <option data-select-id="0">-</option>
+                          <option data-select-id="5">5</option>
+                          <option data-select-id="12">12</option>
+                          <option data-select-id="24">24</option>
+                          <option data-select-id="36">36</option>
+                          <option data-select-id="110">110</option>
+                          <option data-select-id="115">115</option>
+                          <option data-select-id="120">120</option>
+                          <option data-select-id="125">125</option>
+                          <option data-select-id="127">127</option>
+                          <option data-select-id="220">220</option>
+                          <option data-select-id="230">230</option>
+                          <option data-select-id="254">254</option>
+                          <option data-select-id="240">240</option>
+                          <option data-select-id="380">380</option>
+                          <option data-select-id="440">440</option>
+                          <option data-select-id="480">480</option>
+                          <option data-select-id="760">760</option>
+                          <option data-select-id="1000">1000</option>
+                          <option data-select-id="13800">13800</option>
+                          <option data-select-id="69000">69000</option>
+                          <option data-select-id="138000">138000</option>
+                      </select>
+                  </td>
+                  <td><span class="badge">V</span></td>
+              </tr>
+              <tr>
+                  <td><strong>2.</strong></td>
+                  <td>
+                      <strong>Power (P)</strong>
+                      <div class="hover-text">If you already have the <b>Power (W)</b>, you do not need to inform the <b>Current</b></div>
+                  </td>
+                  <td>
+                      <input type="number" class="form-control rounded-0" id="powerCircuit" placeholder="0">
+                  </td>
+                  <td><span class="badge">W</span></td>
+              </tr>
+              <tr>
+                  <td><strong>3.</strong></td>
+                  <td>
+                      <strong>Nominal Current (In)</strong>
+                      <div class="hover-text">If you already have the <b>Current (A)</b>, you do not need to inform the<b>Power</b></div>
+                  </td>
+                  <td>
+                      <input type="number" class="form-control rounded-0" id="nominalCorrent" placeholder="0">
+                  </td>
+                  <td><span class="badge">A</span></td>
+              </tr>
+              <tr>
+                  <td>4.</td>
+                  <td>Power Factor (fP)</td>
+                  <td>
+                      <input type="text" class="form-control rounded-0" id="potencialFactor" value="1">
+                  </td>
+                  <td><span class="badge">-</span></td>
+              </tr>
+              <tr>
+                  <td>5.</td>
+                  <td>Dimension Current. (Idim)</td>
+                  <td>
+                      <input type="number" class="form-control rounded-0" id="dimensionCorrent" readonly>
+                  </td>
+                  <td><span class="badge">A</span></td>
+              </tr>
+              <tr>
+                  <td>6.</td>
+                  <td>Allowed Voltage Drop (V)</td>
+                  <td>
+                      <input type="number" class="form-control rounded-0" id="dropTension" value="3">
+                  </td>
+                  <td><span class="badge">%</span></td>
+              </tr>
+              <tr>
+                  <td><strong>7.</strong></td>
+                  <td><strong>Circuit Length (L)</strong></td>
+                  <td>
+                      <input type="number" class="form-control rounded-0" id="circuitLenght" placeholder="0">
+                  </td>
+                  <td><span class="badge">m</span></td>
+              </tr>
+              <tr>
+                  <td>8.</td>
+                  <td>Cable Resistance (R)</td>
+                  <td>
+                      <input type="number" class="form-control rounded-0" id="cableR" placeholder="0.000" readonly>
+                  </td>
+                  <td><span class="badge">ohm/km</span></td>
+              </tr>
+              <tr>
+                  <td>9.</td>
+                  <td>Cable Reactance (X)</td>
+                  <td>
+                      <input type="number" class="form-control rounded-0" id="cableX" placeholder="0.000" readonly>
+                  </td>
+                  <td><span class="badge">ohm/km</span></td>
+              </tr>
+              <tr>
+                  <td>10.</td>
+                  <td>Cables per Phase</td>
+                  <td>
+                      <input type="number" class="form-control rounded-0" id="cableFase" value="1">
+                  </td>
+                  <td><span class="badge">-</span></td>
+              </tr>
+              <tr>
+                  <td>11.</td>
+                  <td>Exercised Voltage (V) Drop</td>
+                  <td>
+                      <input type="number" class="form-control rounded-0" id="dropTensionE" placeholder="0" readonly>
+                  </td>
+                  <td><span class="badge">%</span></td>
+              </tr>
+              <tr>
+                  <td><strong>12.</strong></td>
+                  <td><strong>Section to Be Used</strong></td>
+                  <td>
+                      <select class="form-control select2" id="sectionChoise" style="width: 100%;">
+                          <option selected="selected" data-select-id="0">-</option>
+                          <option data-select-id="0,5">0,5</option>
+                          <option data-select-id="1">1</option>
+                          <option data-select-id="1,5">1,5</option>
+                          <option data-select-id="2,5">2,5</option>
+                          <option data-select-id="4">4</option>
+                          <option data-select-id="6">6</option>
+                          <option data-select-id="10">10</option>
+                          <option data-select-id="16">16</option>
+                          <option data-select-id="25">25</option>
+                          <option data-select-id="35">35</option>
+                          <option data-select-id="50">50</option>
+                          <option data-select-id="70">70</option>
+                          <option data-select-id="95">95</option>
+                          <option data-select-id="120">120</option>
+                          <option data-select-id="150">150</option>
+                          <option data-select-id="185">185</option>
+                          <option data-select-id="240">240</option>
+                          <option data-select-id="300">300</option>
+                      </select>
+                  </td>
+                  <td><span class="badge">mm²</span></td>
+              </tr>
+          </tbody>
+      </table>
+      <button type="submit" class="btn btn-info" onclick="calcCirc()">Calculate</button>
+  </div>
+
     <!-- /.content-wrapper -->
     <footer class="main-footer">
       <strong>Copyright &copy; 2024 <a href="index.html">Engineering Solutions</a>.</strong>

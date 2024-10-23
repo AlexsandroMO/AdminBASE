@@ -1,61 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explanation of the Formulas</title>
+    <title>Correção de Códigos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
             margin: 20px;
         }
-        h1 {
-            color: #2c3e50;
+        textarea {
+            width: 100%;
+            height: 100px;
         }
-        h2 {
-            color: #34495e;
+        button {
+            margin-top: 10px;
         }
         pre {
-            background-color: #f4f4f4;
+            background-color: #f0f0f0;
             padding: 10px;
-            border: 1px solid #ccc;
         }
     </style>
 </head>
 <body>
-    <h1>Explanation of the Formulas in the Cable Tray Suggestion Code</h1>
 
-    <h2>1. Cable Area</h2>
-    <p>The first formula is used to calculate the area occupied by the cables:</p>
-    <pre><code>const cableArea = Math.PI * Math.pow(cableValue / 2, 2) * quantityValue;</code></pre>
-    <p><strong>Explanation:</strong></p>
-    <ul>
-        <li><strong>cableValue</strong>: Diameter of the cable.</li>
-        <li><strong>cableValue / 2</strong>: Radius of the cable.</li>
-        <li><strong>Math.pow(cableValue / 2, 2)</strong>: Area of the cable's cross-section (circle).</li>
-        <li>Multiplied by <strong>quantityValue</strong> (number of cables) to obtain the total area occupied by the cables.</li>
-    </ul>
+<h1>Corretor de Códigos</h1>
+<textarea id="inputCodes" placeholder="Cole seus códigos aqui..."></textarea>
+<br>
+<button onclick="corrigirCodigos()">Corrigir Códigos</button>
 
-    <h2>2. Allowed Area</h2>
-    <p>The allowed area for the cable tray is calculated as follows:</p>
-    <pre><code>const allowedArea = cableArea / 0.4;</code></pre>
-    <p><strong>Explanation:</strong></p>
-    <ul>
-        <li>The total area occupied by the cables is divided by the allowed occupancy rate (40%).</li>
-        <li>This means the cable tray must be at least 2.5 times the area occupied by the cables.</li>
-    </ul>
+<h2>Códigos Corrigidos:</h2>
+<pre id="outputCodes"></pre>
 
-    <h2>3. Cable Tray Area</h2>
-    <p>Within the loop that looks for the suitable cable tray, the area is calculated like this:</p>
-    <pre><code>const trayArea = tray.height * tray.width;</code></pre>
-    <p><strong>Explanation:</strong></p>
-    <ul>
-        <li>The area of the cable tray is calculated by multiplying its height by its width.</li>
-        <li>It checks if this area is greater than or equal to the <strong>allowedArea</strong>.</li>
-    </ul>
+<script>
+    function corrigirCodigos() {
+        const input = document.getElementById('inputCodes').value;
+        const linhas = input.split('\n');
+        let resultado = '';
+        let contador = 1;
 
-    <h2>Summary</h2>
-    <p>The code determines the total area occupied by the cables, considering their diameter and quantity, calculates the minimum required area of the cable tray to maintain a safe occupancy rate, and iterates through a list of possible dimensions for the cable trays, suggesting the smallest one that meets the area criteria.</p>
+        for (let i = 0; i < linhas.length; i++) {
+            if (linhas[i].trim() === 'I-USH001-01') {
+                resultado += ⁠ I-USH00${contador.toString().padStart(2, '0')}-01\n ⁠;
+                contador++;
+            }
+        }
+
+        document.getElementById('outputCodes').textContent = resultado.trim();
+    }
+</script>
+
 </body>
 </html>
+
