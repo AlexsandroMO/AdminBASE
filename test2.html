@@ -1,35 +1,285 @@
+
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo de Hover</title>
-    <style>
-        .texto {
-            display: inline-block;
-            position: relative;
-            cursor: pointer;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Engineering Solutions</title>
 
-        .texto .mensagem {
-            display: none;
-            position: absolute;
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            padding: 5px;
-            margin-top: 5px;
-            z-index: 1;
-        }
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+  <link rel="stylesheet" href="static/css/base/all.min.css"> <!--fontawesome--->
+  <link rel="stylesheet" href="static/css/base/adminlte.min.css">
+  <link rel="stylesheet" href="static/css/base/OverlayScrollbars.min.css">
 
-        .texto:hover .mensagem {
-            display: block;
-        }
-    </style>
+  <link rel="stylesheet" href="static/css/format-page.css">
+  <link rel="stylesheet" href="static/css/reset.css">
+  <link rel="stylesheet" href="static/css/table-ajust.css">
+
+  <!-- Custom styles for the layout -->
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 30px;
+    }
+
+    .image {
+      max-width: 70%; /* Aumenta o tamanho da imagem */
+      height: auto;
+    }
+
+    .time-box-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-right: 15px; /* Adiciona espaçamento entre as caixas e a imagem */
+    }
+
+    .time-box {
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+      width: 250px; /* Define uma largura fixa para as caixas */
+    }
+
+    .time-box h2 {
+      color: #333;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .time-box .clock {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #2d2d2d;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      min-width: 150px;
+      margin: 0 auto;
+    }
+
+    .time-box:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transform: translateY(-4px);
+    }
+  </style>
+
 </head>
-<body>
-    <div class="texto">
-        Passe o mouse aqui
-        <div class="mensagem">Isso ai</div>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div>
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index.html" class="nav-link">Home</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="media/JARVIS.png" class="img-circle elevation-2" alt="Main Logo">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">AMO Solutions</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item menu-open">
+            <a href="index.html" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Home
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="calcDrop.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voltage Drop</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="eletro-dimension.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Conduit Dimension</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="cabletray-dimension.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Cable Tray Sizing</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="calc-network-cable.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>NetWork Dimension</p>
+                  
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="name-tag.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Instrument Name</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="isa-51.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ISA5.1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="data-sheet.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>DataSheet</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
     </div>
+    <!-- /.sidebar -->
+  </aside>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Engineering Solutions!</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active"><a href="alinha-tags.html">Project</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+
+    <div class="container">
+      <!-- Imagem à esquerda -->
+      <img src="media/Solutions.png" alt="AUT SOLUTIONS" class="image">
+      
+      <!-- Caixinhas de horário empilhadas à direita -->
+      <div class="time-box-container">
+        <div class="time-box">
+          <h2>Hora na Espanha</h2>
+          <div class="clock" id="spain-time">Carregando...</div>
+        </div>
+        <div class="time-box">
+          <h2>Hora no Brasil</h2>
+          <div class="clock" id="brazil-time">Carregando...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- /.content-wrapper -->
+<footer class="main-footer">
+<strong>Copyright &copy; 2024 <a href="index.html">Engineering Solutions</a>.</strong>
+All rights reserved.
+<div class="float-right d-none d-sm-inline-block">
+<b>Version</b> <a href="#">4.0.0</a>
+</div>
+</footer>
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+<!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- base controll -->
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"
+integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+<script>
+$.widget.bridge('uibutton', $.ui.button)
+</script>
+<script src="static/js/base/adminlte.js"></script>
+<script src="static/js/cabletray-calc.js"></script>
+
+<script>
+  // Função para atualizar o horário em tempo real
+  function updateTime() {
+      // Hora na Espanha (Madrid) - fuso horário: Europe/Madrid
+      const spainTime = new Intl.DateTimeFormat('pt-PT', {
+          timeStyle: 'medium',
+          timeZone: 'Europe/Madrid'
+      }).format(new Date());
+
+      // Hora no Brasil (Brasília) - fuso horário: America/Sao_Paulo
+      const brazilTime = new Intl.DateTimeFormat('pt-BR', {
+          timeStyle: 'medium',
+          timeZone: 'America/Sao_Paulo'
+      }).format(new Date());
+
+      // Atualiza o conteúdo da página com as horas
+      document.getElementById('spain-time').textContent = spainTime;
+      document.getElementById('brazil-time').textContent = brazilTime;
+  }
+
+  // Atualiza o horário a cada segundo
+  setInterval(updateTime, 1000);
+
+  // Executa a função imediatamente ao carregar a página
+  updateTime();
+</script>
+
 </body>
 </html>
+
