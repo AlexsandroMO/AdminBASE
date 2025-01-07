@@ -97,3 +97,15 @@
         display: block;
     }
 }
+
+#highlight {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#highlight:hover {
+    color: darkblue;
+    font-weight: bold;
+}
