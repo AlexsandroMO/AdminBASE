@@ -21,6 +21,19 @@
   <link rel="stylesheet" href="static/css/reset.css">
   <link rel="stylesheet" href="static/css/table-ajust.css">
 
+  
+  <style>
+    a {
+      /*color: transparent; */
+      text-decoration: none;
+      /* Remove o sublinhado, se desejado */
+    }
+    #highlight{
+      text-decoration: none;
+    }
+
+  </style>
+  
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -141,11 +154,10 @@
             <h1 class="m-0">Cable Tray Sizing</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="https://www.prysmiangroupcatalogue.com/portugal/cabos-baixa-media-tensao/137/#zoom=true" target="_blank">Cable Table</a></li>
-              <li class="breadcrumb-item active"><a href="calc-base-tray.html">How to Use</a></li>
-              <li class="breadcrumb-item active"><a href="https://dacotace.com.br/produto.asp?id=9" target="_blank">Cable Catalog</a></li>
-            </ol>
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a id="highlight" onclick="abrirAbas()">Cable Catalog</a></li>
+                <li class="breadcrumb-item active"><a href="calc-base-tray.html">How to Use</a></li>
+              </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -291,6 +303,15 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="static/js/base/adminlte.js"></script>
 <script src="static/js/cabletray-calc.js"></script>
 
+  <script>
+  function abrirAbas() {
+      window.open('/media/TA.pdf', '_blank');
+      window.open('/media/TAP.pdf', '_blank');
+      window.open('/media/TM.pdf', '_blank');
+      window.open('/media/TMP.pdf', '_blank');
+  }
+</script>
+  
 </body>
 </html>
 
