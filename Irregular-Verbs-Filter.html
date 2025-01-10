@@ -53,6 +53,24 @@
             border: 1px solid #ddd;
             border-radius: 4px;
         }
+        .verb {
+            cursor: pointer;
+            position: relative;
+        }
+        .translation {
+            visibility: hidden;
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            background-color: #333;
+            color: white;
+            padding: 5px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        .verb:hover .translation {
+            visibility: visible;
+        }
     </style>
 </head>
 <body onload="filterVerbs()">
@@ -78,146 +96,143 @@
 
     <script>
         const verbs = [
-            { verb: 'arise', pastSimple: 'arose', pastParticiple: 'arisen' },
-            { verb: 'be', pastSimple: 'was / were', pastParticiple: 'been' },
-            { verb: 'beat', pastSimple: 'beat', pastParticiple: 'beaten' },
-            { verb: 'become', pastSimple: 'became', pastParticiple: 'become' },
-            { verb: 'begin', pastSimple: 'began', pastParticiple: 'begun' },
-            { verb: 'bend', pastSimple: 'bent', pastParticiple: 'bent' },
-            { verb: 'bite', pastSimple: 'bit', pastParticiple: 'bitten' },
-            { verb: 'bleed', pastSimple: 'bled', pastParticiple: 'bled' },
-            { verb: 'blow', pastSimple: 'blew', pastParticiple: 'blown' },
-            { verb: 'break', pastSimple: 'broke', pastParticiple: 'broken' },
-            { verb: 'bring', pastSimple: 'brought', pastParticiple: 'brought' },
-            { verb: 'broadcast', pastSimple: 'broadcast', pastParticiple: 'broadcast' },
-            { verb: 'build', pastSimple: 'built', pastParticiple: 'built' },
-            { verb: 'burn', pastSimple: 'burnt', pastParticiple: 'burnt' },
-            { verb: 'burst', pastSimple: 'burst', pastParticiple: 'burst' },
-            { verb: 'buy', pastSimple: 'bought', pastParticiple: 'bought' },
-            { verb: 'catch', pastSimple: 'caught', pastParticiple: 'caught' },
-            { verb: 'choose', pastSimple: 'chose', pastParticiple: 'chosen' },
-            { verb: 'come', pastSimple: 'came', pastParticiple: 'come' },
-            { verb: 'cost', pastSimple: 'cost', pastParticiple: 'cost' },
-            { verb: 'creep', pastSimple: 'crept', pastParticiple: 'crept' },
-            { verb: 'cut', pastSimple: 'cut', pastParticiple: 'cut' },
-            { verb: 'deal', pastSimple: 'dealt', pastParticiple: 'dealt' },
-            { verb: 'dig', pastSimple: 'dug', pastParticiple: 'dug' },
-            { verb: 'do', pastSimple: 'did', pastParticiple: 'done' },
-            { verb: 'draw', pastSimple: 'drew', pastParticiple: 'drawn' },
-            { verb: 'dream', pastSimple: 'dreamt', pastParticiple: 'dreamt' },
-            { verb: 'drink', pastSimple: 'drank', pastParticiple: 'drunk' },
-            { verb: 'drive', pastSimple: 'drove', pastParticiple: 'driven' },
-            { verb: 'eat', pastSimple: 'ate', pastParticiple: 'eaten' },
-            { verb: 'fall', pastSimple: 'fell', pastParticiple: 'fallen' },
-            { verb: 'feed', pastSimple: 'fed', pastParticiple: 'fed' },
-            { verb: 'feel', pastSimple: 'felt', pastParticiple: 'felt' },
-            { verb: 'fight', pastSimple: 'fought', pastParticiple: 'fought' },
-            { verb: 'find', pastSimple: 'found', pastParticiple: 'found' },
-            { verb: 'fly', pastSimple: 'flew', pastParticiple: 'flown' },
-            { verb: 'forbid', pastSimple: 'forbade', pastParticiple: 'forbidden' },
-            { verb: 'forget', pastSimple: 'forgot', pastParticiple: 'forgotten' },
-            { verb: 'forgive', pastSimple: 'forgave', pastParticiple: 'forgiven' },
-            { verb: 'freeze', pastSimple: 'froze', pastParticiple: 'frozen' },
-            { verb: 'get', pastSimple: 'got', pastParticiple: 'got' },
-            { verb: 'give', pastSimple: 'gave', pastParticiple: 'given' },
-            { verb: 'go', pastSimple: 'went', pastParticiple: 'gone' },
-            { verb: 'grow', pastSimple: 'grew', pastParticiple: 'grown' },
-            { verb: 'hang', pastSimple: 'hung', pastParticiple: 'hung' },
-            { verb: 'have', pastSimple: 'had', pastParticiple: 'had' },
-            { verb: 'hear', pastSimple: 'heard', pastParticiple: 'heard' },
-            { verb: 'hide', pastSimple: 'hid', pastParticiple: 'hidden' },
-            { verb: 'hit', pastSimple: 'hit', pastParticiple: 'hit' },
-            { verb: 'hold', pastSimple: 'held', pastParticiple: 'held' },
-            { verb: 'hurt', pastSimple: 'hurt', pastParticiple: 'hurt' },
-            { verb: 'keep', pastSimple: 'kept', pastParticiple: 'kept' },
-            { verb: 'kneel', pastSimple: 'knelt', pastParticiple: 'knelt' },
-            { verb: 'know', pastSimple: 'knew', pastParticiple: 'known' },
-            { verb: 'lay', pastSimple: 'laid', pastParticiple: 'laid' },
-            { verb: 'lead', pastSimple: 'led', pastParticiple: 'led' },
-            { verb: 'lean', pastSimple: 'leant', pastParticiple: 'leant' },
-            { verb: 'learn', pastSimple: 'learnt', pastParticiple: 'learnt' },
-            { verb: 'leave', pastSimple: 'left', pastParticiple: 'left' },
-            { verb: 'lend', pastSimple: 'lent', pastParticiple: 'lent' },
-            { verb: 'let', pastSimple: 'let', pastParticiple: 'let' },
-            { verb: 'lie', pastSimple: 'lay', pastParticiple: 'lain' },
-            { verb: 'light', pastSimple: 'lit', pastParticiple: 'lit' },
-            { verb: 'lose', pastSimple: 'lost', pastParticiple: 'lost' },
-            { verb: 'make', pastSimple: 'made', pastParticiple: 'made' },
-            { verb: 'mean', pastSimple: 'meant', pastParticiple: 'meant' },
-            { verb: 'meet', pastSimple: 'met', pastParticiple: 'met' },
-            { verb: 'pay', pastSimple: 'paid', pastParticiple: 'paid' },
-            { verb: 'put', pastSimple: 'put', pastParticiple: 'put' },
-            { verb: 'read', pastSimple: 'read', pastParticiple: 'read' },
-            { verb: 'ride', pastSimple: 'rode', pastParticiple: 'ridden' },
-            { verb: 'ring', pastSimple: 'rang', pastParticiple: 'rung' },
-            { verb: 'rise', pastSimple: 'rose', pastParticiple: 'risen' },
-            { verb: 'run', pastSimple: 'ran', pastParticiple: 'run' },
-            { verb: 'say', pastSimple: 'said', pastParticiple: 'said' },
-            { verb: 'see', pastSimple: 'saw', pastParticiple: 'seen' },
-            { verb: 'seek', pastSimple: 'sought', pastParticiple: 'sought' },
-            { verb: 'sell', pastSimple: 'sold', pastParticiple: 'sold' },
-            { verb: 'send', pastSimple: 'sent', pastParticiple: 'sent' },
-            { verb: 'set', pastSimple: 'set', pastParticiple: 'set' },
-            { verb: 'shake', pastSimple: 'shook', pastParticiple: 'shaken' },
-            { verb: 'shine', pastSimple: 'shone', pastParticiple: 'shone' },
-            { verb: 'shoot', pastSimple: 'shot', pastParticiple: 'shot' },
-            { verb: 'show', pastSimple: 'showed', pastParticiple: 'shown' },
-            { verb: 'shut', pastSimple: 'shut', pastParticiple: 'shut' },
-            { verb: 'sing', pastSimple: 'sang', pastParticiple: 'sung' },
-            { verb: 'sink', pastSimple: 'sank', pastParticiple: 'sunk' },
-            { verb: 'sit', pastSimple: 'sat', pastParticiple: 'sat' },
-            { verb: 'sleep', pastSimple: 'slept', pastParticiple: 'slept' },
-            { verb: 'slide', pastSimple: 'slid', pastParticiple: 'slid' },
-            { verb: 'speak', pastSimple: 'spoke', pastParticiple: 'spoken' },
-            { verb: 'spend', pastSimple: 'spent', pastParticiple: 'spent' },
-            { verb: 'spill', pastSimple: 'spilt', pastParticiple: 'spilt' },
-            { verb: 'spit', pastSimple: 'spat', pastParticiple: 'spat' },
-            { verb: 'split', pastSimple: 'split', pastParticiple: 'split' },
-            { verb: 'spread', pastSimple: 'spread', pastParticiple: 'spread' },
-            { verb: 'stand', pastSimple: 'stood', pastParticiple: 'stood' },
-            { verb: 'steal', pastSimple: 'stole', pastParticiple: 'stolen' },
-            { verb: 'stick', pastSimple: 'stuck', pastParticiple: 'stuck' },
-            { verb: 'sting', pastSimple: 'stung', pastParticiple: 'stung' },
-            { verb: 'strike', pastSimple: 'struck', pastParticiple: 'struck' },
-            { verb: 'swear', pastSimple: 'swore', pastParticiple: 'sworn' },
-            { verb: 'sweep', pastSimple: 'swept', pastParticiple: 'swept' },
-            { verb: 'swim', pastSimple: 'swam', pastParticiple: 'swum' },
-            { verb: 'swing', pastSimple: 'swung', pastParticiple: 'swung' },
-            { verb: 'take', pastSimple: 'took', pastParticiple: 'taken' },
-            { verb: 'teach', pastSimple: 'taught', pastParticiple: 'taught' },
-            { verb: 'tear', pastSimple: 'tore', pastParticiple: 'torn' },
-            { verb: 'tell', pastSimple: 'told', pastParticiple: 'told' },
-            { verb: 'think', pastSimple: 'thought', pastParticiple: 'thought' },
-            { verb: 'throw', pastSimple: 'threw', pastParticiple: 'thrown' },
-            { verb: 'understand', pastSimple: 'understood', pastParticiple: 'understood' },
-            { verb: 'wake', pastSimple: 'woke', pastParticiple: 'woken' },
-            { verb: 'wear', pastSimple: 'wore', pastParticiple: 'worn' },
-            { verb: 'win', pastSimple: 'won', pastParticiple: 'won' },
-            { verb: 'write', pastSimple: 'wrote', pastParticiple: 'written' }
+            { verb: 'arise', pastSimple: 'arose', pastParticiple: 'arisen', translation: 'surgir' },
+            { verb: 'be', pastSimple: 'was / were', pastParticiple: 'been', translation: 'ser/estar' },
+            { verb: 'beat', pastSimple: 'beat', pastParticiple: 'beaten', translation: 'bater' },
+            { verb: 'become', pastSimple: 'became', pastParticiple: 'become', translation: 'tornar-se' },
+            { verb: 'begin', pastSimple: 'began', pastParticiple: 'begun', translation: 'começar' },
+            { verb: 'bend', pastSimple: 'bent', pastParticiple: 'bent', translation: 'dobrar' },
+            { verb: 'bite', pastSimple: 'bit', pastParticiple: 'bitten', translation: 'morder' },
+            { verb: 'bleed', pastSimple: 'bled', pastParticiple: 'bled', translation: 'sangrar' },
+            { verb: 'blow', pastSimple: 'blew', pastParticiple: 'blown', translation: 'assoprar' },
+            { verb: 'break', pastSimple: 'broke', pastParticiple: 'broken', translation: 'quebrar' },
+            { verb: 'bring', pastSimple: 'brought', pastParticiple: 'brought', translation: 'trazer' },
+            { verb: 'broadcast', pastSimple: 'broadcast', pastParticiple: 'broadcast', translation: 'transmitir' },
+            { verb: 'build', pastSimple: 'built', pastParticiple: 'built', translation: 'construir' },
+            { verb: 'burn', pastSimple: 'burnt', pastParticiple: 'burnt', translation: 'queimar' },
+            { verb: 'burst', pastSimple: 'burst', pastParticiple: 'burst', translation: 'explodir' },
+            { verb: 'buy', pastSimple: 'bought', pastParticiple: 'bought', translation: 'comprar' },
+            { verb: 'catch', pastSimple: 'caught', pastParticiple: 'caught', translation: 'pegar' },
+            { verb: 'choose', pastSimple: 'chose', pastParticiple: 'chosen', translation: 'escolher' },
+            { verb: 'come', pastSimple: 'came', pastParticiple: 'come', translation: 'vir' },
+            { verb: 'cost', pastSimple: 'cost', pastParticiple: 'cost', translation: 'custar' },
+            { verb: 'creep', pastSimple: 'crept', pastParticiple: 'crept', translation: 'rastrear' },
+            { verb: 'cut', pastSimple: 'cut', pastParticiple: 'cut', translation: 'cortar' },
+            { verb: 'deal', pastSimple: 'dealt', pastParticiple: 'dealt', translation: 'lidar' },
+            { verb: 'dig', pastSimple: 'dug', pastParticiple: 'dug', translation: 'cavar' },
+            { verb: 'do', pastSimple: 'did', pastParticiple: 'done', translation: 'fazer' },
+            { verb: 'draw', pastSimple: 'drew', pastParticiple: 'drawn', translation: 'desenhar' },
+            { verb: 'dream', pastSimple: 'dreamt', pastParticiple: 'dreamt', translation: 'sonhar' },
+            { verb: 'drink', pastSimple: 'drank', pastParticiple: 'drunk', translation: 'beber' },
+            { verb: 'drive', pastSimple: 'drove', pastParticiple: 'driven', translation: 'dirigir' },
+            { verb: 'eat', pastSimple: 'ate', pastParticiple: 'eaten', translation: 'comer' },
+            { verb: 'fall', pastSimple: 'fell', pastParticiple: 'fallen', translation: 'cair' },
+            { verb: 'feed', pastSimple: 'fed', pastParticiple: 'fed', translation: 'alimentar' },
+            { verb: 'feel', pastSimple: 'felt', pastParticiple: 'felt', translation: 'sentir' },
+            { verb: 'fight', pastSimple: 'fought', pastParticiple: 'fought', translation: 'lutar' },
+            { verb: 'find', pastSimple: 'found', pastParticiple: 'found', translation: 'encontrar' },
+            { verb: 'fly', pastSimple: 'flew', pastParticiple: 'flown', translation: 'voar' },
+            { verb: 'forbid', pastSimple: 'forbade', pastParticiple: 'forbidden', translation: 'proibir' },
+            { verb: 'forget', pastSimple: 'forgot', pastParticiple: 'forgotten', translation: 'esquecer' },
+            { verb: 'forgive', pastSimple: 'forgave', pastParticiple: 'forgiven', translation: 'perdoar' },
+            { verb: 'freeze', pastSimple: 'froze', pastParticiple: 'frozen', translation: 'congelar' },
+            { verb: 'get', pastSimple: 'got', pastParticiple: 'got', translation: 'obter' },
+            { verb: 'give', pastSimple: 'gave', pastParticiple: 'given', translation: 'dar' },
+            { verb: 'go', pastSimple: 'went', pastParticiple: 'gone', translation: 'ir' },
+            { verb: 'grow', pastSimple: 'grew', pastParticiple: 'grown', translation: 'crescer' },
+            { verb: 'hang', pastSimple: 'hung', pastParticiple: 'hung', translation: 'pendurar' },
+            { verb: 'have', pastSimple: 'had', pastParticiple: 'had', translation: 'ter' },
+            { verb: 'hear', pastSimple: 'heard', pastParticiple: 'heard', translation: 'ouvir' },
+            { verb: 'hide', pastSimple: 'hid', pastParticiple: 'hidden', translation: 'esconder' },
+            { verb: 'hit', pastSimple: 'hit', pastParticiple: 'hit', translation: 'bater' },
+            { verb: 'hold', pastSimple: 'held', pastParticiple: 'held', translation: 'segurar' },
+            { verb: 'hurt', pastSimple: 'hurt', pastParticiple: 'hurt', translation: 'machucar' },
+            { verb: 'keep', pastSimple: 'kept', pastParticiple: 'kept', translation: 'manter' },
+            { verb: 'kneel', pastSimple: 'knelt', pastParticiple: 'knelt', translation: 'ajoelhar-se' },
+            { verb: 'know', pastSimple: 'knew', pastParticiple: 'known', translation: 'saber/conhecer' },
+            { verb: 'lay', pastSimple: 'laid', pastParticiple: 'laid', translation: 'colocar' },
+            { verb: 'lead', pastSimple: 'led', pastParticiple: 'led', translation: 'liderar' },
+            { verb: 'lean', pastSimple: 'leant', pastParticiple: 'leant', translation: 'inclinar-se' },
+            { verb: 'learn', pastSimple: 'learnt', pastParticiple: 'learnt', translation: 'aprender' },
+            { verb: 'leave', pastSimple: 'left', pastParticiple: 'left', translation: 'deixar' },
+            { verb: 'lend', pastSimple: 'lent', pastParticiple: 'lent', translation: 'emprestar' },
+            { verb: 'let', pastSimple: 'let', pastParticiple: 'let', translation: 'deixar' },
+            { verb: 'lie', pastSimple: 'lay', pastParticiple: 'lain', translation: 'deitar' },
+            { verb: 'light', pastSimple: 'lit', pastParticiple: 'lit', translation: 'iluminar' },
+            { verb: 'lose', pastSimple: 'lost', pastParticiple: 'lost', translation: 'perder' },
+            { verb: 'make', pastSimple: 'made', pastParticiple: 'made', translation: 'fazer' },
+            { verb: 'mean', pastSimple: 'meant', pastParticiple: 'meant', translation: 'significar' },
+            { verb: 'meet', pastSimple: 'met', pastParticiple: 'met', translation: 'encontrar' },
+            { verb: 'pay', pastSimple: 'paid', pastParticiple: 'paid', translation: 'pagar' },
+            { verb: 'put', pastSimple: 'put', pastParticiple: 'put', translation: 'colocar' },
+            { verb: 'read', pastSimple: 'read', pastParticiple: 'read', translation: 'ler' },
+            { verb: 'ride', pastSimple: 'rode', pastParticiple: 'ridden', translation: 'andar (de cavalo)' },
+            { verb: 'ring', pastSimple: 'rang', pastParticiple: 'rung', translation: 'tocar (sino)' },
+            { verb: 'rise', pastSimple: 'rose', pastParticiple: 'risen', translation: 'subir' },
+            { verb: 'run', pastSimple: 'ran', pastParticiple: 'run', translation: 'correr' },
+            { verb: 'say', pastSimple: 'said', pastParticiple: 'said', translation: 'dizer' },
+            { verb: 'see', pastSimple: 'saw', pastParticiple: 'seen', translation: 'ver' },
+            { verb: 'seek', pastSimple: 'sought', pastParticiple: 'sought', translation: 'procurar' },
+            { verb: 'sell', pastSimple: 'sold', pastParticiple: 'sold', translation: 'vender' },
+            { verb: 'send', pastSimple: 'sent', pastParticiple: 'sent', translation: 'enviar' },
+            { verb: 'set', pastSimple: 'set', pastParticiple: 'set', translation: 'ajustar' },
+            { verb: 'shake', pastSimple: 'shook', pastParticiple: 'shaken', translation: 'sacudir' },
+            { verb: 'shine', pastSimple: 'shone', pastParticiple: 'shone', translation: 'brilhar' },
+            { verb: 'shoot', pastSimple: 'shot', pastParticiple: 'shot', translation: 'atirar' },
+            { verb: 'show', pastSimple: 'showed', pastParticiple: 'shown', translation: 'mostrar' },
+            { verb: 'shut', pastSimple: 'shut', pastParticiple: 'shut', translation: 'fechar' },
+            { verb: 'sing', pastSimple: 'sang', pastParticiple: 'sung', translation: 'cantar' },
+            { verb: 'sink', pastSimple: 'sank', pastParticiple: 'sunk', translation: 'afundar' },
+            { verb: 'sit', pastSimple: 'sat', pastParticiple: 'sat', translation: 'sentar' },
+            { verb: 'sleep', pastSimple: 'slept', pastParticiple: 'slept', translation: 'dormir' },
+            { verb: 'slide', pastSimple: 'slid', pastParticiple: 'slid', translation: 'deslizar' },
+            { verb: 'speak', pastSimple: 'spoke', pastParticiple: 'spoken', translation: 'falar' },
+            { verb: 'spend', pastSimple: 'spent', pastParticiple: 'spent', translation: 'gastar' },
+            { verb: 'spill', pastSimple: 'spilt', pastParticiple: 'spilt', translation: 'derramar' },
+            { verb: 'spit', pastSimple: 'spat', pastParticiple: 'spat', translation: 'cosper' },
+            { verb: 'split', pastSimple: 'split', pastParticiple: 'split', translation: 'dividir' },
+            { verb: 'spread', pastSimple: 'spread', pastParticiple: 'spread', translation: 'espalhar' },
+            { verb: 'stand', pastSimple: 'stood', pastParticiple: 'stood', translation: 'ficar em pé' },
+            { verb: 'steal', pastSimple: 'stole', pastParticiple: 'stolen', translation: 'roubar' },
+            { verb: 'stick', pastSimple: 'stuck', pastParticiple: 'stuck', translation: 'colar' },
+            { verb: 'strike', pastSimple: 'struck', pastParticiple: 'struck', translation: 'golpear' },
+            { verb: 'swim', pastSimple: 'swam', pastParticiple: 'swum', translation: 'nadar' },
+            { verb: 'take', pastSimple: 'took', pastParticiple: 'taken', translation: 'pegar' },
+            { verb: 'teach', pastSimple: 'taught', pastParticiple: 'taught', translation: 'ensinar' },
+            { verb: 'tear', pastSimple: 'tore', pastParticiple: 'torn', translation: 'rasgar' },
+            { verb: 'tell', pastSimple: 'told', pastParticiple: 'told', translation: 'contar' },
+            { verb: 'think', pastSimple: 'thought', pastParticiple: 'thought', translation: 'pensar' },
+            { verb: 'throw', pastSimple: 'threw', pastParticiple: 'thrown', translation: 'jogar' },
+            { verb: 'understand', pastSimple: 'understood', pastParticiple: 'understood', translation: 'entender' },
+            { verb: 'wake', pastSimple: 'woke', pastParticiple: 'woken', translation: 'acordar' },
+            { verb: 'wear', pastSimple: 'wore', pastParticiple: 'worn', translation: 'vestir' },
+            { verb: 'win', pastSimple: 'won', pastParticiple: 'won', translation: 'vencer' },
+            { verb: 'write', pastSimple: 'wrote', pastParticiple: 'written', translation: 'escrever' }
         ];
 
         function filterVerbs() {
-            const input = document.getElementById('verbInput').value.toLowerCase();
-            const table = document.getElementById('verbsTable');
-            table.innerHTML = '';
+            const input = document.getElementById("verbInput").value.toLowerCase();
+            const tableBody = document.getElementById("verbsTable");
+            tableBody.innerHTML = ""; // Clear previous results
 
-            verbs.forEach(v => {
-                if (v.verb.toLowerCase().includes(input) || v.pastSimple.toLowerCase().includes(input) || v.pastParticiple.toLowerCase().includes(input)) {
-                    const row = `<tr>
-                                    <td>${v.verb}</td>
-                                    <td>${v.pastSimple}</td>
-                                    <td>${v.pastParticiple}</td>
-                                </tr>`;
-                    table.innerHTML += row;
-                }
+            const filteredVerbs = verbs.filter(verb =>
+                verb.verb.includes(input) ||
+                verb.pastSimple.includes(input) ||
+                verb.pastParticiple.includes(input)
+            );
+
+            filteredVerbs.forEach(verb => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td><span class="verb">${verb.verb}<span class="translation">${verb.translation}</span></span></td>
+                    <td>${verb.pastSimple}</td>
+                    <td>${verb.pastParticiple}</td>
+                `;
+                tableBody.appendChild(row);
             });
-
-            if (table.innerHTML === '') {
-                table.innerHTML = '<tr><td colspan="3">No results found</td></tr>';
-            }
         }
 
-        document.getElementById('verbInput').addEventListener('input', filterVerbs);
+        document.getElementById("verbInput").addEventListener("input", filterVerbs);
     </script>
 </body>
 </html>
