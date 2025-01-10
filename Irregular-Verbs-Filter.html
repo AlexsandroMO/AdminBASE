@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irregular Verbs Filter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav img {
+            height: 40px;
+        }
+        nav h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body onload="filterVerbs()">
+    <nav>
+        <img src="LOG-VERBS.webp" alt="Logo">
+        <h1>Irregular Verbs Filter</h1>
+    </nav>
+    <div class="container">
+        <input type="text" id="verbInput" placeholder="Enter a verb in any form">
+        <table>
+            <thead>
+                <tr>
+                    <th>Verb</th>
+                    <th>Past Simple</th>
+                    <th>Past Participle</th>
+                </tr>
+            </thead>
+            <tbody id="verbsTable">
+                <!-- Table rows will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const verbs = [
+            { verb: 'arise', pastSimple: 'arose', pastParticiple: 'arisen' },
+            { verb: 'be', pastSimple: 'was / were', pastParticiple: 'been' },
+            { verb: 'beat', pastSimple: 'beat', pastParticiple: 'beaten' },
+            { verb: 'become', pastSimple: 'became', pastParticiple: 'become' },
+            { verb: 'begin', pastSimple: 'began', pastParticiple: 'begun' },
+            { verb: 'bend', pastSimple: 'bent', pastParticiple: 'bent' },
+            { verb: 'bite', pastSimple: 'bit', pastParticiple: 'bitten' },
+            { verb: 'bleed', pastSimple: 'bled', pastParticiple: 'bled' },
+            { verb: 'blow', pastSimple: 'blew', pastParticiple: 'blown' },
+            { verb: 'break', pastSimple: 'broke', pastParticiple: 'broken' },
+            { verb: 'bring', pastSimple: 'brought', pastParticiple: 'brought' },
+            { verb: 'broadcast', pastSimple: 'broadcast', pastParticiple: 'broadcast' },
+            { verb: 'build', pastSimple: 'built', pastParticiple: 'built' },
+            { verb: 'burn', pastSimple: 'burnt', pastParticiple: 'burnt' },
+            { verb: 'burst', pastSimple: 'burst', pastParticiple: 'burst' },
+            { verb: 'buy', pastSimple: 'bought', pastParticiple: 'bought' },
+            { verb: 'catch', pastSimple: 'caught', pastParticiple: 'caught' },
+            { verb: 'choose', pastSimple: 'chose', pastParticiple: 'chosen' },
+            { verb: 'come', pastSimple: 'came', pastParticiple: 'come' },
+            { verb: 'cost', pastSimple: 'cost', pastParticiple: 'cost' },
+            { verb: 'creep', pastSimple: 'crept', pastParticiple: 'crept' },
+            { verb: 'cut', pastSimple: 'cut', pastParticiple: 'cut' },
+            { verb: 'deal', pastSimple: 'dealt', pastParticiple: 'dealt' },
+            { verb: 'dig', pastSimple: 'dug', pastParticiple: 'dug' },
+            { verb: 'do', pastSimple: 'did', pastParticiple: 'done' },
+            { verb: 'draw', pastSimple: 'drew', pastParticiple: 'drawn' },
+            { verb: 'dream', pastSimple: 'dreamt', pastParticiple: 'dreamt' },
+            { verb: 'drink', pastSimple: 'drank', pastParticiple: 'drunk' },
+            { verb: 'drive', pastSimple: 'drove', pastParticiple: 'driven' },
+            { verb: 'eat', pastSimple: 'ate', pastParticiple: 'eaten' },
+            { verb: 'fall', pastSimple: 'fell', pastParticiple: 'fallen' },
+            { verb: 'feed', pastSimple: 'fed', pastParticiple: 'fed' },
+            { verb: 'feel', pastSimple: 'felt', pastParticiple: 'felt' },
+            { verb: 'fight', pastSimple: 'fought', pastParticiple: 'fought' },
+            { verb: 'find', pastSimple: 'found', pastParticiple: 'found' },
+            { verb: 'fly', pastSimple: 'flew', pastParticiple: 'flown' },
+            { verb: 'forbid', pastSimple: 'forbade', pastParticiple: 'forbidden' },
+            { verb: 'forget', pastSimple: 'forgot', pastParticiple: 'forgotten' },
+            { verb: 'forgive', pastSimple: 'forgave', pastParticiple: 'forgiven' },
+            { verb: 'freeze', pastSimple: 'froze', pastParticiple: 'frozen' },
+            { verb: 'get', pastSimple: 'got', pastParticiple: 'got' },
+            { verb: 'give', pastSimple: 'gave', pastParticiple: 'given' },
+            { verb: 'go', pastSimple: 'went', pastParticiple: 'gone' },
+            { verb: 'grow', pastSimple: 'grew', pastParticiple: 'grown' },
+            { verb: 'hang', pastSimple: 'hung', pastParticiple: 'hung' },
+            { verb: 'have', pastSimple: 'had', pastParticiple: 'had' },
+            { verb: 'hear', pastSimple: 'heard', pastParticiple: 'heard' },
+            { verb: 'hide', pastSimple: 'hid', pastParticiple: 'hidden' },
+            { verb: 'hit', pastSimple: 'hit', pastParticiple: 'hit' },
+            { verb: 'hold', pastSimple: 'held', pastParticiple: 'held' },
+            { verb: 'hurt', pastSimple: 'hurt', pastParticiple: 'hurt' },
+            { verb: 'keep', pastSimple: 'kept', pastParticiple: 'kept' },
+            { verb: 'kneel', pastSimple: 'knelt', pastParticiple: 'knelt' },
+            { verb: 'know', pastSimple: 'knew', pastParticiple: 'known' },
+            { verb: 'lay', pastSimple: 'laid', pastParticiple: 'laid' },
+            { verb: 'lead', pastSimple: 'led', pastParticiple: 'led' },
+            { verb: 'lean', pastSimple: 'leant', pastParticiple: 'leant' },
+            { verb: 'learn', pastSimple: 'learnt', pastParticiple: 'learnt' },
+            { verb: 'leave', pastSimple: 'left', pastParticiple: 'left' },
+            { verb: 'lend', pastSimple: 'lent', pastParticiple: 'lent' },
+            { verb: 'let', pastSimple: 'let', pastParticiple: 'let' },
+            { verb: 'lie', pastSimple: 'lay', pastParticiple: 'lain' },
+            { verb: 'light', pastSimple: 'lit', pastParticiple: 'lit' },
+            { verb: 'lose', pastSimple: 'lost', pastParticiple: 'lost' },
+            { verb: 'make', pastSimple: 'made', pastParticiple: 'made' },
+            { verb: 'mean', pastSimple: 'meant', pastParticiple: 'meant' },
+            { verb: 'meet', pastSimple: 'met', pastParticiple: 'met' },
+            { verb: 'pay', pastSimple: 'paid', pastParticiple: 'paid' },
+            { verb: 'put', pastSimple: 'put', pastParticiple: 'put' },
+            { verb: 'read', pastSimple: 'read', pastParticiple: 'read' },
+            { verb: 'ride', pastSimple: 'rode', pastParticiple: 'ridden' },
+            { verb: 'ring', pastSimple: 'rang', pastParticiple: 'rung' },
+            { verb: 'rise', pastSimple: 'rose', pastParticiple: 'risen' },
+            { verb: 'run', pastSimple: 'ran', pastParticiple: 'run' },
+            { verb: 'say', pastSimple: 'said', pastParticiple: 'said' },
+            { verb: 'see', pastSimple: 'saw', pastParticiple: 'seen' },
+            { verb: 'seek', pastSimple: 'sought', pastParticiple: 'sought' },
+            { verb: 'sell', pastSimple: 'sold', pastParticiple: 'sold' },
+            { verb: 'send', pastSimple: 'sent', pastParticiple: 'sent' },
+            { verb: 'set', pastSimple: 'set', pastParticiple: 'set' },
+            { verb: 'shake', pastSimple: 'shook', pastParticiple: 'shaken' },
+            { verb: 'shine', pastSimple: 'shone', pastParticiple: 'shone' },
+            { verb: 'shoot', pastSimple: 'shot', pastParticiple: 'shot' },
+            { verb: 'show', pastSimple: 'showed', pastParticiple: 'shown' },
+            { verb: 'shut', pastSimple: 'shut', pastParticiple: 'shut' },
+            { verb: 'sing', pastSimple: 'sang', pastParticiple: 'sung' },
+            { verb: 'sink', pastSimple: 'sank', pastParticiple: 'sunk' },
+            { verb: 'sit', pastSimple: 'sat', pastParticiple: 'sat' },
+            { verb: 'sleep', pastSimple: 'slept', pastParticiple: 'slept' },
+            { verb: 'slide', pastSimple: 'slid', pastParticiple: 'slid' },
+            { verb: 'speak', pastSimple: 'spoke', pastParticiple: 'spoken' },
+            { verb: 'spend', pastSimple: 'spent', pastParticiple: 'spent' },
+            { verb: 'spill', pastSimple: 'spilt', pastParticiple: 'spilt' },
+            { verb: 'spit', pastSimple: 'spat', pastParticiple: 'spat' },
+            { verb: 'split', pastSimple: 'split', pastParticiple: 'split' },
+            { verb: 'spread', pastSimple: 'spread', pastParticiple: 'spread' },
+            { verb: 'stand', pastSimple: 'stood', pastParticiple: 'stood' },
+            { verb: 'steal', pastSimple: 'stole', pastParticiple: 'stolen' },
+            { verb: 'stick', pastSimple: 'stuck', pastParticiple: 'stuck' },
+            { verb: 'sting', pastSimple: 'stung', pastParticiple: 'stung' },
+            { verb: 'strike', pastSimple: 'struck', pastParticiple: 'struck' },
+            { verb: 'swear', pastSimple: 'swore', pastParticiple: 'sworn' },
+            { verb: 'sweep', pastSimple: 'swept', pastParticiple: 'swept' },
+            { verb: 'swim', pastSimple: 'swam', pastParticiple: 'swum' },
+            { verb: 'swing', pastSimple: 'swung', pastParticiple: 'swung' },
+            { verb: 'take', pastSimple: 'took', pastParticiple: 'taken' },
+            { verb: 'teach', pastSimple: 'taught', pastParticiple: 'taught' },
+            { verb: 'tear', pastSimple: 'tore', pastParticiple: 'torn' },
+            { verb: 'tell', pastSimple: 'told', pastParticiple: 'told' },
+            { verb: 'think', pastSimple: 'thought', pastParticiple: 'thought' },
+            { verb: 'throw', pastSimple: 'threw', pastParticiple: 'thrown' },
+            { verb: 'understand', pastSimple: 'understood', pastParticiple: 'understood' },
+            { verb: 'wake', pastSimple: 'woke', pastParticiple: 'woken' },
+            { verb: 'wear', pastSimple: 'wore', pastParticiple: 'worn' },
+            { verb: 'win', pastSimple: 'won', pastParticiple: 'won' },
+            { verb: 'write', pastSimple: 'wrote', pastParticiple: 'written' }
+        ];
+
+        function filterVerbs() {
+            const input = document.getElementById('verbInput').value.toLowerCase();
+            const table = document.getElementById('verbsTable');
+            table.innerHTML = '';
+
+            verbs.forEach(v => {
+                if (v.verb.toLowerCase().includes(input) || v.pastSimple.toLowerCase().includes(input) || v.pastParticiple.toLowerCase().includes(input)) {
+                    const row = `<tr>
+                                    <td>${v.verb}</td>
+                                    <td>${v.pastSimple}</td>
+                                    <td>${v.pastParticiple}</td>
+                                </tr>`;
+                    table.innerHTML += row;
+                }
+            });
+
+            if (table.innerHTML === '') {
+                table.innerHTML = '<tr><td colspan="3">No results found</td></tr>';
+            }
+        }
+
+        document.getElementById('verbInput').addEventListener('input', filterVerbs);
+    </script>
+</body>
+</html>
