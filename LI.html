@@ -24,6 +24,19 @@
     a:hover {
       text-decoration: underline;
     }
+    thead tr:nth-child(2) th {
+      position: sticky;
+      top: 32px; /* Ajuste para alinhar com a altura da linha de filtro */
+      background-color: #f2f2f2;
+      z-index: 2;
+    }
+    
+    thead tr:first-child th {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      z-index: 3;
+    }
   </style>
 </head>
 <body>
