@@ -3,78 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <title>Tabela de Instrumentos</title>
-  
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .table-container {
+      flex: 1;
+      height: 70vh;
+      overflow: auto;
+      border: 1px solid #ccc;
+    }
+
     table {
-        border-collapse: collapse;
-        font-family: Arial, sans-serif;
-      }
+      border-collapse: collapse;
+      min-width: max-content;
+    }
 
-      th, td {
-        padding: 8px 12px;
-        border: 1px solid #ccc;
-        text-align: left;
-        white-space: nowrap; /* Evita quebra de linha */
-      }
+    th, td {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      white-space: nowrap;
+      text-align: left;
+    }
 
-      th {
-        background-color: #f2f2f2;
-      }
+    thead th {
+      position: sticky;
+      top: 0;
+      background-color: #fff;
+      z-index: 2;
+    }
 
-      a {
-        color: #007bff;
-        text-decoration: none;
-      }
+    thead input {
+      width: 100%;
+      box-sizing: border-box;
+    }
 
-      a:hover {
-        text-decoration: underline;
-      }
+    thead tr:nth-child(1) th {
+      top: 0;
+      z-index: 3;
+      background-color: white;
+    }
 
-      thead tr:nth-child(2) th {
-        position: sticky;
-        top: 32px;
-        background-color: #f2f2f2;
-        z-index: 2;
-      }
+    thead tr:nth-child(2) th {
+      top: 36px; /* altura da linha de filtros */
+      background-color: #f2f2f2;
+      z-index: 2;
+    }
 
-      thead tr:first-child th {
-        position: sticky;
-        top: 0;
-        background-color: white;
-        z-index: 3;
-      }
+    .table-container::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+    }
 
-      .table-container {
-        overflow-x: auto;
-        max-width: 100%;
-      }
-      
+    .table-container::-webkit-scrollbar-track {
+      background: #f2f2f2;
+    }
+
+    .table-container::-webkit-scrollbar-thumb {
+      background-color: #999;
+      border-radius: 4px;
+    }
+
+    .table-container:hover::-webkit-scrollbar-thumb {
+      background-color: #666;
+    }
+
+    a {
+      color: #0000EE; /* cor padrão do link */
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: #0000EE; /* mesma cor do link normal */
+    }
+
   </style>
 </head>
 <body>
 
-<h2>Lista de Instrumentos</h2>
+<h2>Lista de Instrumentos - (Cabinda)</h2>
 
 <div class="table-container">
-<table id="instrumentTable">
-  <thead>
-    <tr>
-        <th><input type="text" onkeyup="filterTable(0)" placeholder="Filtrar TAG NAME"></th>
-        <th><input type="text" onkeyup="filterTable(1)" placeholder="Filtrar INSTRUMENT TYPE"></th>
-        <th><input type="text" onkeyup="filterTable(2)" placeholder="Filtrar P&ID NUMBER"></th>
-        <th><input type="text" onkeyup="filterTable(3)" placeholder="Filtrar DATASHEET"></th>
-        <th><input type="text" onkeyup="filterTable(4)" placeholder="REMARKS"></th>
-        </tr>
-    <tr>
-      <th>TAG NAME</th>
-      <th>INSTRUMENT TYPE</th>
-      <th>P&amp;ID NUMBER</th>
-      <th>DATASHEET</th>
-      <th>REMARKS</th>
-    </tr>
-  </thead>
-  <tbody>
+  <table>
+    <thead>
+      <tr>
+        <th><input type="text" placeholder="Filtrar TAG NAME"></th>
+        <th><input type="text" placeholder="Filtrar TYPE"></th>
+        <th><input type="text" placeholder="Filtrar P&ID"></th>
+        <th><input type="text" placeholder="Filtrar DATASHEET"></th>
+        <th><input type="text" placeholder="Filtrar REMARKS"></th>
+      </tr>
+      <tr>
+        <th>TAG NAME</th>
+        <th>INSTRUMENT TYPE</th>
+        <th>P&amp;ID NUMBER</th>
+        <th>DATASHEET</th>
+        <th>REMARKS</th>
+      </tr>
+    </thead>
 
+    <tbody>
 
 <tr><td>	ABFV-412A	</td><td>	On-Off Valve Motorized	</td><td><a href="	https://oec.greendocs.net/Itens/2641/163019?_p=1	" target="_blank"> 	GHE-EN-30308-22-PID-0001 (PK-002)	</a></td><td><a href="	-	" target="_blank">	-	</a></td><td>	-	</td></tr>
 <tr><td>	ABFV-412B	</td><td>	On-Off Valve Motorized	</td><td><a href="	https://oec.greendocs.net/Itens/2641/163019?_p=1	" target="_blank"> 	GHE-EN-30308-22-PID-0001 (PK-002)	</a></td><td><a href="	-	" target="_blank">	-	</a></td><td>	-	</td></tr>
