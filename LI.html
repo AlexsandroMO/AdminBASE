@@ -1739,22 +1739,28 @@ All valves supplied with stainless steel tags with  Type and Tag Number."	</td><
 </body>
 
 <script>
-    function filterTable(colIndex) {
-      var input, filter, table, tr, td, i, txtValue;
-      table = document.getElementById("instrumentTable");
-      tr = table.getElementsByTagName("tr");
-      input = table.rows[0].cells[colIndex].getElementsByTagName("input")[0];
-      filter = input.value.toUpperCase();
-    
-      for (i = 2; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[colIndex];
-        if (td) {
-          txtValue = td.textContent || td.innerText;
-          tr[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
-        }
-      }
-    }
-    </script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const table = document.querySelector('table');
+    const filters = table.querySelectorAll('thead tr:nth-child(1) input');
+    const rows = table.querySelectorAll('tbody tr');
+
+    filters.forEach((input, colIndex) => {
+      input.addEventListener('input', () => {
+        const filterValues = Array.from(filters).map(input => input.value.toLowerCase());
+
+        rows.forEach(row => {
+          const cells = row.querySelectorAll('td');
+          const show = filterValues.every((value, index) => {
+            const cellText = cells[index]?.textContent.toLowerCase() || '';
+            return cellText.includes(value);
+          });
+
+          row.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  });
+</script>
 
 
 </html>
