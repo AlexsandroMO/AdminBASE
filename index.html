@@ -23,77 +23,80 @@
 
   <!-- Custom styles for the layout -->
   <style>
-.container {
+   .container {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   margin-top: 20px;
   gap: 30px;
-  flex-wrap: wrap; /* Permite que os itens empilhem em telas menores */
-}
-
-.image {
-  max-width: 70%;
-  height: auto;
-}
-
-.time-box-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.time-box {
-  background-color: #f7f7f7;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: all 0.3s ease;
-  margin-bottom: 20px;
-  width: 250px;
-}
-
-.time-box h2 {
-  color: #333;
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-.time-box .clock {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #2d2d2d;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  min-width: 150px;
-  margin: 0 auto;
-}
-
-.time-box:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-4px);
-}
-
-/* Estilos para telas menores (celulares) */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column; /* Empilha a imagem e as caixas no celular */
-    align-items: center; /* Centraliza o conteúdo */
-    gap: 20px; /* Ajusta o espaço entre os itens */
+  flex-wrap: wrap;
   }
 
   .image {
-    max-width: 100%; /* Faz a imagem ocupar 100% da largura no celular */
+    max-width: 70%;
+    height: auto;
+  }
+
+  .time-box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .time-box {
-    width: 100%; /* Faz as caixas ocuparem 100% da largura no celular */
+    background-color: #f7f7f7;
+    padding: 12px; /* reduzido de 20px */
+    border-radius: 8px; /* ligeiramente menor */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+    width: 200px; /* reduzido de 250px */
   }
-}
+
+  .time-box h2 {
+    color: #333;
+    font-size: 1.2rem; /* reduzido de 1.5rem */
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .time-box .clock {
+    font-size: 1.2rem; /* reduzido de 1.5rem */
+    font-weight: bold;
+    color: #2d2d2d;
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 6%;
+    border: 1px solid #ccc;
+    min-width: 100px;
+    margin: 0 auto;
+  }
+
+  .time-box:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+  }
+
+  /* Estilos para telas menores (celulares) */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .image {
+      max-width: 100%;
+    }
+
+    .time-box {
+      width: 100%;
+    }
+  }
+
+  
+
   </style>
 
 </head>
@@ -223,20 +226,24 @@
       <!-- Imagem à esquerda -->
       <img src="media/Solutions.png" alt="AUT SOLUTIONS" class="image">
       
-      <!-- Caixinhas de horário empilhadas à direita -->
-      <div class="time-box-container">
-        <div class="time-box">
-          <h2>Hora en España</h2>
-          <div class="clock" id="spain-time">Carregando...</div>
-        </div>
-        <div class="time-box">
-          <h2>Hora en Brasil</h2>
-          <div class="clock" id="brazil-time">Carregando...</div>
-        </div>
+    <!-- Caixinhas de horário empilhadas à direita -->
+    <div class="time-box-container">
+      <div class="time-box">
+        <h2>Hora en España</h2>
+        <div class="clock" id="spain-time">Carregando...</div>
+      </div>
+      <div class="time-box">
+        <h2>Hora en Brasil</h2>
+        <div class="clock" id="brazil-time">Carregando...</div>
+      </div>
+      <div class="time-box">
+        <h2>Week of the year</h2>
+        <div class="clock" id="semana">Carregando...</div>
       </div>
     </div>
-  </div>
 
+  </div>
+</div>
 <!-- /.content-wrapper -->
 <footer class="main-footer">
 <strong>Copyright &copy; 2024 <a href="index.html">Engineering Solutions</a>.</strong>
@@ -272,32 +279,45 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="static/js/cabletray-calc.js"></script>
 
 <script>
-  // Função para atualizar o horário em tempo real
+  // Função para calcular o número da semana ISO
+  function getWeekNumber(date) {
+      const tempDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+      const dayNum = tempDate.getUTCDay() || 7; // domingo = 0, ajusta para 7
+      tempDate.setUTCDate(tempDate.getUTCDate() + 4 - dayNum);
+      const yearStart = new Date(Date.UTC(tempDate.getUTCFullYear(), 0, 1));
+      const weekNo = Math.ceil((((tempDate - yearStart) / 86400000) + 1) / 7);
+      return weekNo;
+  }
+
+  // Função para atualizar o horário e a semana
   function updateTime() {
-      // Hora na Espanha (Madrid) - fuso horário: Europe/Madrid
+      const now = new Date();
+
+      // Hora na Espanha (Madrid)
       const spainTime = new Intl.DateTimeFormat('pt-PT', {
           timeStyle: 'medium',
           timeZone: 'Europe/Madrid'
-      }).format(new Date());
+      }).format(now);
 
-      // Hora no Brasil (Brasília) - fuso horário: America/Sao_Paulo
+      // Hora no Brasil (Brasília)
       const brazilTime = new Intl.DateTimeFormat('pt-BR', {
           timeStyle: 'medium',
           timeZone: 'America/Sao_Paulo'
-      }).format(new Date());
+      }).format(now);
 
-      // Atualiza o conteúdo da página com as horas
+      // Número da semana
+      const semana = getWeekNumber(now);
+
+      // Atualiza os elementos da página
       document.getElementById('spain-time').textContent = spainTime;
       document.getElementById('brazil-time').textContent = brazilTime;
+      document.getElementById('semana').textContent = `Week ${semana}`;
   }
 
-  // Atualiza o horário a cada segundo
+  // Atualiza a cada segundo
   setInterval(updateTime, 1000);
-
-  // Executa a função imediatamente ao carregar a página
-  updateTime();
+  updateTime(); // Executa imediatamente ao carregar
 </script>
 
 </body>
 </html>
-
