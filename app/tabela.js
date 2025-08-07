@@ -132,7 +132,8 @@ function exportarExcel() {
   const ws = XLSX.utils.aoa_to_sheet(tabelaOriginal);
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "Editado");
-  XLSX.writeFile(wb, "cabos_editado.xlsx");
+  XLSX.writeFile(wb, "PLANILHA_EDITADA.xlsx");
 }
 
 renderTable();
+
