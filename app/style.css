@@ -46,3 +46,25 @@
   background: transparent;
   box-sizing: border-box;
 }
+
+
+/* Tema escuro para a tabela */
+.dark-mode .styled-table {
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+
+.dark-mode .styled-table th,
+.dark-mode .styled-table td {
+  border-color: #444;
+}
+
+.dark-mode .styled-table th.resizable .resizer {
+  background-color: #666;
+}
+
+.dark-mode .styled-table input {
+  background-color: #333;
+  color: #eee;
+  border: 1px solid #555;
+}
