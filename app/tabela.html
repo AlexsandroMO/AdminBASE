@@ -5,15 +5,48 @@
   <title>Tabela Editável</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
+<style>
+#toolbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px;
+  z-index: 1000;
+  border-top: 1px solid #ccc;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  margin: 0;
+  padding-bottom: 60px; /* Espaço reservado para a barra inferior */
+}
+
+#tabelaContainer {
+  padding: 10px;
+  overflow-x: auto;
+}
+</style>
+
+
 <body>
-  <div class="container">
-    <h1>Tabela Lida</h1>
-    <div id="tabelaWrapper">
-      <div id="tabelaContainer"></div>
-    </div>
-    <button onclick="exportarExcel()">Download Excel Editado</button>
-    <button onclick="voltar()" style="margin-left: 10px;">Voltar</button>
+<div class="container">
+  <h1>Tabela Lida</h1>
+  <div id="tabelaWrapper">
+    <div id="tabelaContainer"></div>
   </div>
+    <div id="toolbar">
+      <button onclick="exportarExcel()">Download Excel Editado</button>
+      <button onclick="voltar()" style="margin-left: 10px;">Voltar</button>
+      <button onclick="toggleDarkMode()">Tema Escuro</button>
+      <span id="contadorLinhas" style="margin-left: 10px;">Linhas visíveis: 0</span>
+    </div>
+</div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="tabela.js"></script>
@@ -29,4 +62,3 @@
   </script>
 </body>
 </html>
-
