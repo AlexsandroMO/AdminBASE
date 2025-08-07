@@ -32,6 +32,13 @@ function createResizableTh(th) {
   });
 }
 
+function atualizarContadorLinhas() {
+  const contador = document.getElementById("contadorLinhas");
+  if (contador) {
+    contador.textContent = `Linhas visíveis: ${tabelaFiltrada.length - 1}`;
+  }
+}
+
 function renderTable() {
   const activeElement = document.activeElement;
   const activeColIndex = activeElement?.dataset?.col;
@@ -112,6 +119,8 @@ function renderTable() {
       input.setSelectionRange(cursorPos, cursorPos);
     }
   }
+
+  atualizarContadorLinhas();
 }
 
 function applyFilters() {
@@ -132,8 +141,11 @@ function exportarExcel() {
   const ws = XLSX.utils.aoa_to_sheet(tabelaOriginal);
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "Editado");
-  XLSX.writeFile(wb, "PLANILHA_EDITADA.xlsx");
+  XLSX.writeFile(wb, "cabos_editado.xlsx");
+}
+
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
 }
 
 renderTable();
-
