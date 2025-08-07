@@ -1,0 +1,48 @@
+#tabelaWrapper {
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  overflow: auto;
+  max-height: 600px;
+  max-width: 100%;
+}
+
+.styled-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: auto;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.styled-table th,
+.styled-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  white-space: nowrap;
+  vertical-align: middle;
+  position: relative;
+}
+
+.styled-table th.resizable {
+  position: relative;
+  user-select: none;
+  width: auto !important;
+}
+
+.styled-table th.resizable .resizer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 6px;
+  cursor: col-resize;
+  user-select: none;
+  height: 100%;
+  z-index: 1;
+}
+
+.styled-table input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  box-sizing: border-box;
+}
