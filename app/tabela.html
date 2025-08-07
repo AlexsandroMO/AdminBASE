@@ -12,10 +12,21 @@
       <div id="tabelaContainer"></div>
     </div>
     <button onclick="exportarExcel()">Download Excel Editado</button>
+    <button onclick="voltar()" style="margin-left: 10px;">Voltar</button>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="tabela.js"></script>
+
+  <script>
+    function voltar() {
+      if (window.opener) {
+        window.close();
+      } else {
+        window.location.href = "../read_table_browser.html";
+      }
+    }
+  </script>
 </body>
 </html>
 
